@@ -1,3 +1,11 @@
 <?xml version="1.0"?>
 <registry>
+  <records prefix="plone.resources/ads_layout"
+         interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <!-- <value key="js">++plone++static/components/pickadate/lib/picker.date.js</value> -->
+    <value key="css">
+      <element>++plone++redturtle.ads/css/advertisement.min.css</element>
+    </value>
+  </records>
+
 </registry>

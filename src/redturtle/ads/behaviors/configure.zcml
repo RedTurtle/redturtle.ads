@@ -1,0 +1,34 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="redturtle.ads">
+
+  <plone:behavior
+    title="Advertisement expiration days"
+    description="Adds the ability to force exipiration days of an advertisement"
+    provides=".expiration.IExpirationDaysBehavior"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    />
+
+  <plone:behavior
+    title="Advertisement email notifications"
+    description="Adds the ability to set an email address that will be notified for every new advertisement"
+    provides=".mail_notification.IRecipientEmailBehavior"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    />
+
+  <plone:behavior
+    title="Advertisement price"
+    description="Adds a price field"
+    provides=".price.IPriceBehavior"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    />
+
+  <plone:behavior
+    title="Advertisement external link"
+    description="Adds an external link field"
+    provides=".external_link.IExternalLinkBehavior"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    />
+
+</configure>

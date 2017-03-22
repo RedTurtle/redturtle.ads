@@ -8,12 +8,13 @@
 
   <includeDependencies package="." />
 
+  <include file="permissions.zcml" />
+  <include package=".behaviors" />
   <include package=".browser" />
-
 
   <genericsetup:registerProfile
       name="default"
-      title="redturtle.ads"
+      title="Redturtle Ads"
       directory="profiles/default"
       description="Installs the redturtle.ads add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"

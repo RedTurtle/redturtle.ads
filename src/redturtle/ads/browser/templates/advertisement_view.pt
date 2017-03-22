@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="redturtle.ads">
+
+  <body>
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core"
+                          tal:define="price context/price|nothing;
+                                      text context/text|nothing;
+                                      external_url context/external_url|nothing;
+                                      principal_image view/getPrincipalImage;
+                                      additional_images view/getAdditionalImages;
+                                      category view/getCategory;
+                                      effective context/Date;
+                                      author_infos view/getAuthorInfos">
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 advertisement-infos">
+          <div class="panel panel-default">
+            <div class="panel-heading" i18n:translate="infos_label">Infos</div>
+            <div class="panel-body">
+              <div class="row infos-item"
+                   tal:condition="price">
+                <div class="col-xs-6 col-sm-6"><strong i18n:translate="price_label">Price</strong></div>
+                <div class="col-xs-6 col-sm-6">${price}</div>
+              </div>
+              <div class="row infos-item"
+                   tal:condition="category">
+                <div class="col-xs-6 col-sm-6"><strong i18n:translate="category_label">Category</strong></div>
+                <div class="col-xs-6 col-sm-6"><a href="${category/url}" title="${category/title}">${category/title}</a></div>
+              </div>
+              <div class="row infos-item"
+                   tal:condition="effective">
+                <div class="col-xs-6 col-sm-6"><strong i18n:translate="published_label">Published</strong></div>
+                <div class="col-xs-6 col-sm-6" tal:content="python:view.getFormattedDate(effective)"></div>
+              </div>
+              <div class="row infos-item"
+                   tal:condition="external_url">
+                <div class="col-xs-6 col-sm-6"><strong i18n:translate="external_link_label">External link</strong></div>
+                <div class="col-xs-6 col-sm-6"><a href="${external_url}" title="Go to external link">${external_url}</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-8 col-sm-8 advertisement-details"
+             tal:condition="python:text or principal_image">
+          <!-- <figure class="image-right" tal:condition="principal_image" tal:content="structure principal_image"></figure> -->
+          <div tal:condition="text" tal:replace="structure text/output"></div>
+        </div>
+      </div>
+      <div class="additional-images" tal:condition="additional_images">
+        <tal:image repeat="image_tag additional_images">
+          <figure tal:content="structure image_tag"></figure>
+        </tal:image>
+      </div>
+      <div tal:condition="author_infos" class="author-infos row">
+        <div class="col-xs-6 col-sm-6"
+             tal:define="creator author_infos/creator">
+          <a href="${context/portal_url}/${creator/id}/author_info" title="${creator/fullname}">${creator/fullname}</a>
+        </div>
+        <div class="col-xs-6 col-sm-6"
+             tal:define="advertisements author_infos/advertisements">
+          ${advertisements}
+          <tal:single condition="python:advertisements == 1" i18n:translate="advertisement_label">advertisement created</tal:single>
+          <tal:single condition="python:advertisements != 1" i18n:translate="advertisements_label">advertisements created</tal:single>
+        </div>
+      </div>
+      </metal:content-core>
+    </metal:content-core>
+  </body>
+</html>

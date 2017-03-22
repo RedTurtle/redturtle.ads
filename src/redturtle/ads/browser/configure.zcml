@@ -18,4 +18,41 @@
       directory="static"
       />
 
+  <!-- Publish static files -->
+  <plone:static
+      name="redturtle.ads.app"
+      type="plone"
+      directory="app/build/static"
+      />
+  <browser:page
+    name="view"
+    class=".advertisement_view.AdvertisementView"
+    permission="zope2.View"
+    for="redturtle.ads.interfaces.IAdvertisement"
+    layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
+    template="templates/advertisement_view.pt"
+    />
+  <browser:page
+    name="view"
+    class=".ads_category_view.AdsCategoryView"
+    permission="zope2.View"
+    for="redturtle.ads.interfaces.IAdsCategory"
+    layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
+    template="templates/ads_category_view.pt"
+    />
+  <browser:page
+    name="view"
+    class=".bulletin_board_view.BulletinBoardView"
+    permission="zope2.View"
+    for="redturtle.ads.interfaces.IBulletinBoard"
+    layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
+    template="templates/bulletin_board.pt"
+    />
+  <browser:page
+    name="search_advertisements"
+    class=".search_advertisements.View"
+    permission="zope2.View"
+    for="*"
+    layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
+    />
 </configure>

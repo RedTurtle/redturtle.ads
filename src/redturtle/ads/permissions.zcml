@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+  	xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="rer.groupware.room">
+
+  <permission
+    id="redturtle.ads.AddBulletinBoard"
+    title="redturtle.ads: Add Bulletin Board"
+  />
+  <permission
+    id="redturtle.ads.AddAdsCategory"
+    title="redturtle.ads: Add Ads Category"
+  />
+  <permission
+    id="redturtle.ads.AddAdvertisement"
+    title="redturtle.ads: Add Advertisement"
+  />
+</configure>
