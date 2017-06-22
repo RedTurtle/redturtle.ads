@@ -55,4 +55,11 @@
     for="*"
     layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
     />
+  <browser:page
+    name="search_categories"
+    class=".search_advertisements.SearchCategories"
+    permission="zope2.View"
+    for="*"
+    layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
+    />
 </configure>

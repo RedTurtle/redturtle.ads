@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const receiveSearchResults = (searchResults) => ({
   type: types.RECEIVE_SEARCH_RESULTS,
-  searchResults: searchResults,
+  data: searchResults,
 });
 
 export const updateSearchableText = (text) => ({
@@ -46,7 +46,10 @@ export const getSearchResults = (pageNumber) => (dispatch, getState) => {
       params: generateQuery(state, pageNumber),
       responseType: 'json',
     }
-  ).then(response => dispatch(receiveSearchResults(response.data)));
+  ).then(response => {
+      debugger;
+      return dispatch(receiveSearchResults(response.data?response.data:[]));
+  });
 };
 
 export const changedSearchableText = (e) => dispatch => dispatch(updateSearchableText(e.target.value));

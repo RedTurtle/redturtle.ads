@@ -10,10 +10,10 @@ const searchResults = (state=initialState, action) => {
   switch (action.type) {
     case types.RECEIVE_SEARCH_RESULTS:
       return Object.assign({}, state, {
-          data: action.searchResults.data,
+          data: action.data,
           pagination: {
-            links: action.searchResults.links,
-            infos: action.searchResults.meta,
+            links: action.data.links,
+            infos: action.data.meta,
           },
         });
     case types.UPDATE_SEARCHABLE_TEXT:

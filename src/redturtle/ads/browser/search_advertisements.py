@@ -1,11 +1,43 @@
 # -*- coding: utf-8 -*-
-from Products.CMFPlone.resources import add_resource_on_request
-from Products.Five.browser import BrowserView
+# from Products.CMFPlone.resources import add_resource_on_request
+# from Products.Five.browser import BrowserView
 from plone import api
 import json
 from redturtle.ads.browser.helpers_view import HelpersView
 from plone.app.contentlisting.interfaces import IContentListing
 from Products.CMFPlone.PloneBatch import Batch
+
+
+class SearchCategories(HelpersView):
+    '''
+    view that return categories
+    '''
+
+    def __call__(self):
+        '''
+        return the categories list
+        '''
+        query = {
+            'portal_type': 'AdsCategory',
+            'sort_on': 'sortable_title',
+        }
+        results = api.content.find(**query)
+        json_result = map(self.formatResponse, results),
+        self.request.response.setHeader("Content-type", "application/json")
+        self.request.response.setHeader("Access-Control-Allow-Origin", "*")
+        return json.dumps(json_result)
+
+    def formatResponse(self, brain):
+        """
+        jsonify categories informations
+        """
+        obj = brain.getObject()
+        scale = obj.restrictedTraverse('@@images').scale
+        return {
+            'title': obj.title,
+            'url': '{}/++add++Advertisement'.format(obj.absolute_url()),
+            'image': scale('image', scale='mini').url
+        }
 
 
 class View(HelpersView):
@@ -58,8 +90,10 @@ class View(HelpersView):
             'links': {
                 'self': '{}?{}'.format(base_url, results.pageurl({})),
                 'first': '{}?b_start:int=0'.format(base_url),
-                'next': nexturls and '{}?{}'.format(base_url, nexturls[1]) or '',
-                'prev': prevurls and '{}?{}'.format(base_url, prevurls[1]) or '',
+                'next': nexturls and '{}?{}'.format(base_url,
+                                                    nexturls[1]) or '',
+                'prev': prevurls and '{}?{}'.format(base_url,
+                                                    prevurls[1]) or '',
                 'last': '{}?b_start:int={}'.format(base_url, results.last),
             }
         }
@@ -76,5 +110,6 @@ class View(HelpersView):
             'date': self.getFormattedDate(item.Date())
         }
         if item.image and self.getImageScale(item):
-            res['image_src'] = "{}/images/image/thumb".format(item.absolute_url())
+            res['image_src'] = "{}/images/image/thumb".format(
+                item.absolute_url())
         return res
