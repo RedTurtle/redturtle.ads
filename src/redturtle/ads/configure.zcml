@@ -35,4 +35,10 @@
       factory=".setuphandlers.HiddenProfiles"
       name="redturtle.ads-hiddenprofiles" />
 
+
+  <utility
+    component=".vocabularies.CategoriesVocabularyFactory"
+    name="redturtle.ads.vocabularies.categories"
+    />
+
 </configure>

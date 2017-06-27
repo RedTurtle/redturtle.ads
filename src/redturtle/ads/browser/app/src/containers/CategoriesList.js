@@ -24,12 +24,14 @@ export default class CategoriesList extends Component {
   }
   render() {
     const theData = this.state.categories;
-    /* let resRender = theData.map((category) => <Category key={category.id} data={category} />);*/
+    let resRender = theData.map((category) => {
+        return <Category key={category.id} data={category} />
+    });
     
-    if (Object.keys(theData).length > 0 && theData.constructor === Object){
+    if (theData){
         return (
         <div className="categories-list">
-            {/*resRender*/}
+            {resRender}
         </div>
         );
    } else{

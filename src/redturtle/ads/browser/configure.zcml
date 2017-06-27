@@ -50,16 +50,24 @@
     />
   <browser:page
     name="search_advertisements"
-    class=".search_advertisements.View"
+    class=".searches.View"
     permission="zope2.View"
     for="*"
     layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
     />
   <browser:page
     name="search_categories"
-    class=".search_advertisements.SearchCategories"
+    class=".searches.SearchCategories"
     permission="zope2.View"
     for="*"
     layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
     />
+  <browser:page
+    name="create_adv"
+    class=".create_adv.CreateAdv"
+    permission="zope2.View"
+    for="*"
+    layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
+    />
+
 </configure>

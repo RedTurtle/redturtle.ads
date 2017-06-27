@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchFiltersContainer from './containers/SearchFiltersContainer';
 import SearchResultsContainer from './containers/SearchResultsContainer';
-import AddNewAdvertisementContainer from './containers/AddNewAdvertisementContainer';
+// import AddNewAdvertisementContainer from './containers/AddNewAdvertisementContainer';
 
 class App extends Component {
   render() {

@@ -4,6 +4,7 @@ const initialState = {
   data: [],
   pagination: {},
   searchableText: '',
+  searchableCategory: '',
 };
 
 const searchResults = (state=initialState, action) => {
@@ -16,8 +17,13 @@ const searchResults = (state=initialState, action) => {
             infos: action.data.meta,
           },
         });
+
     case types.UPDATE_SEARCHABLE_TEXT:
       return Object.assign({}, state, { searchableText: action.searchableText });
+
+    case types.UPDATE_SEARCHABLE_CATEGORY:
+      return Object.assign({}, state, { searchableCategory: action.searchableCategory });
+
     default:
       return state;
   }

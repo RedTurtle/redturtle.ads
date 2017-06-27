@@ -11,9 +11,14 @@ export const updateSearchableText = (text) => ({
   searchableText: text,
 });
 
+export const updateSearchableCategory = (category) => ({
+  type: types.UPDATE_SEARCHABLE_CATEGORY,
+  searchableCategory: category,
+});
+
 export const unableContactBackend = (error) => ({
   type: types.UNABLE_CONTACT_BACKEND,
-  errror: error,
+  error: error,
 });
 
 const generateQuery = (state, pageNumber) => {
@@ -27,6 +32,10 @@ const generateQuery = (state, pageNumber) => {
 
   if (state.searchableText.length > 0) {
     params.q = state.searchableText;
+  }
+
+  if (state.searchableCategory.length > 0) {
+    params.path = state.searchableCategory;
   }
 
   if (pageNumber) {
@@ -47,9 +56,9 @@ export const getSearchResults = (pageNumber) => (dispatch, getState) => {
       responseType: 'json',
     }
   ).then(response => {
-      debugger;
       return dispatch(receiveSearchResults(response.data?response.data:[]));
   });
 };
 
 export const changedSearchableText = (e) => dispatch => dispatch(updateSearchableText(e.target.value));
+export const changedSearchableCategory = (e) => dispatch => dispatch(updateSearchableCategory(e.target.value));

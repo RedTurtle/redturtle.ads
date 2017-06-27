@@ -12,13 +12,13 @@ export class SearchResultsContainer extends Component {
 
     const handlePageChange = (e) => getSearchResults(e.selected);
 
-    const results = this.props.data;
+    const results = this.props.data.data; /* XXX ?? */
     const pagination = this.props.pagination;
 
     let resRender;
     let paginateRender;
 
-    if (results.length === 0) {
+    if (!results) {
       resRender = <p className="no-results">No advertisements found</p>;
     } else {
       resRender = results.map((result) => <Advertisement key={result.id} data={result} />);

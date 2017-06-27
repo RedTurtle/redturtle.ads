@@ -2,11 +2,8 @@
 """Module where all interfaces, events and exceptions live."""
 
 from redturtle.ads import _
-from zope import schema
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from plone.app.textfield import RichText as RichTextField
-from plone.app.z3cform.widget import RichTextFieldWidget
 from plone.supermodel import model
 from plone.app.textfield import RichText
 
@@ -33,7 +30,8 @@ class IBulletinBoard(model.Schema):
             default=u"Advertisement help text"),
         description=_(
             "ads_help_text_help",
-            default=u"Insert some help text that will be rendered when an user creates a new advertisement."),
+            default=u"Insert some help text that will be rendered when an user"
+                    " creates a new advertisement."),
         default_mime_type='text/html',
         output_mime_type='text/html',
         allowed_mime_types=('text/html', 'text/plain',),
@@ -46,7 +44,8 @@ class IBulletinBoard(model.Schema):
             default=u"Privacy text"),
         description=_(
             "privacy_text_help",
-            default=u"Insert a privacy policy text that will be rendered when an user creates a new advertisement."),
+            default=u"Insert a privacy policy text that will be rendered when"
+                    " an user creates a new advertisement."),
         default_mime_type='text/html',
         output_mime_type='text/html',
         allowed_mime_types=('text/html', 'text/plain',),
@@ -61,3 +60,9 @@ class IAdsCategory(model.Schema):
 
 class IAdvertisement(model.Schema):
     """ """
+
+
+class IRedturtleAdvBehavior(Interface):
+    """
+    Marker interface for redturtle adv behavior
+    """
