@@ -2,6 +2,7 @@
 
 from Acquisition import aq_base
 from Acquisition.interfaces import IAcquirer
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile as Z3VPTF
 from plone.app.uuid.utils import uuidToObject
 from plone.app.z3cform.widget import SelectFieldWidget
 from plone.dexterity.interfaces import IDexterityFTI
@@ -61,13 +62,28 @@ class CreateAdv(form.AddForm):
 
         ads_category = zope.schema.Choice(
             __name__='ads_category',
-            title=_(u'ads_category_title', default=u'Cateegory'),
+            title=_(u'ads_category_title', default=u'Category'),
             vocabulary='redturtle.ads.vocabularies.categories',
             required=True,
             missing_value='',
         )
 
-        fields_list = [ads_category]
+        help_text = self.context.get_ads_help_text().decode('utf-8')
+        ads_help_text = zope.schema.Text(
+            __name__='helptext',
+            title=u'',
+            required=False,
+            default=help_text
+        )
+        privacy_text = self.context.get_privacy_text().decode('utf-8')
+        ads_privacy_text = zope.schema.Text(
+            __name__='privacytext',
+            title=u'',
+            required=False,
+            default=privacy_text
+        )
+
+        fields_list = [ads_help_text, ads_category]
         # add at the list all the fields taken from the base schema
         for field_name, fieldobj in getFieldsInOrder(IAdvertisement):
             fields_list.append(fieldobj)
@@ -89,9 +105,15 @@ class CreateAdv(form.AddForm):
             else:
                 continue
 
+        fields_list.append(ads_privacy_text)
         return Fields(*fields_list)
 
         fields['ads_category'].widgetFactory = SelectFieldWidget  # noqa
+
+    def updateWidgets(self):
+        super(CreateAdv, self).updateWidgets()
+        self.widgets['helptext'].template = Z3VPTF('templates/customtext.pt')  # noqa
+        self.widgets['privacytext'].template = Z3VPTF('templates/customtext.pt')  # noqa
 
     @button.buttonAndHandler(_('Add'), name='add')
     def handleAdd(self, action):
