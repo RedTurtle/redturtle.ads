@@ -8,6 +8,9 @@ class BulletinBoard(Container):
     A bulletin board
     """
 
+    def get_bullettin_board(self):
+        return aq_inner(self)
+
     def get_ads_help_text(self):
         text = aq_inner(self).ads_help_text
         if text:

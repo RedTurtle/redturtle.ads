@@ -6,7 +6,7 @@ import json
 from redturtle.ads.browser.helpers_view import HelpersView
 from plone.app.contentlisting.interfaces import IContentListing
 from Products.CMFPlone.PloneBatch import Batch
-from plone.app.uuid.utils import uuidToObject
+# from plone.app.uuid.utils import uuidToObject
 
 
 class SearchCategories(HelpersView):
@@ -27,7 +27,7 @@ class SearchCategories(HelpersView):
         self.request.response.setHeader("Content-type", "application/json")
         self.request.response.setHeader("Access-Control-Allow-Origin", "*")
         json_result.insert(0, {'id': '',
-                               'uid': '',
+                               'path': '',
                                'title': '-- select category --'})
         return json.dumps(json_result)
 
@@ -38,7 +38,7 @@ class SearchCategories(HelpersView):
         return {
             'title': brain.Title,
             'id': brain.getId,
-            'uid': brain.UID
+            'path': brain.getPath()
         }
 
 
@@ -63,8 +63,7 @@ class View(HelpersView):
         if searchableText:
             query['SearchableText'] = searchableText
         if path:
-            obj = uuidToObject(path)
-            query['path'] = '/'.join(obj.getPhysicalPath())
+            query['path'] = path
         results = api.content.find(**query)
         results = IContentListing(results)
 

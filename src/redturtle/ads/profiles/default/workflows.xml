@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <object name="ads_categories_workflow" meta_type="Workflow"/>
+ <object name="ads_advertisement_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="BulletinBoard">
+   <bound-workflow workflow_id="simple_pubblication_workflow" />
+  </type>
+  <type type_id="AdsCategory">
+   <bound-workflow workflow_id="ads_categories_workflow" />
+  </type>
+  <type type_id="Advertisement">
+   <bound-workflow workflow_id="ads_advertisement_workflow" />
+  </type>
+ </bindings>
+</object>

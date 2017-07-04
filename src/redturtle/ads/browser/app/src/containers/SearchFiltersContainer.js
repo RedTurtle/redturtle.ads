@@ -40,18 +40,29 @@ export class SearchFiltersContainer extends Component {
 
 
   render() {
+    let SelectCategory = null;
     const theData = this.state.categories;
     let renderSelect = theData.map((category) => {
-        return <option key={category.id} value={category.uid}>{category.title}</option>
+        return <option key={category.id} value={category.path}>{category.title}</option>
     });
     const { changedSearchableText } = this.props;
+
+    let isCat = document.getElementsByTagName("body")[0].className.match('portaltype-adscategory')?true:false
+    if (!isCat){
+        SelectCategory = (
+            <select onChange={this.handleChange}>
+                {renderSelect}
+            </select>
+        );
+    }
+    else{
+        SelectCategory = '';
+    }
 
 
     return (
       <div className="filters-container">
-        <select onChange={this.handleChange}>
-            {renderSelect}
-        </select>
+        {SelectCategory}
 
         <form className="form-inline"
               onSubmit={this.submittedSearch}>

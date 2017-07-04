@@ -1,0 +1,10 @@
+<html>
+    <head></head>
+    <body i18n:domain="redturtle.ads">
+        <p tal:content="options/msg1"></p>
+        <br/>
+        <p tal:content="options/msg2"></p>
+        <p tal:content="options/msg3"></p>
+        <a tal:attributes="href options/adv_url" tal:content="options/adv_title">Motocicletta 10HP</a>
+    </body>
+</html>

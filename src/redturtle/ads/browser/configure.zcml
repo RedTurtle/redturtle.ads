@@ -24,6 +24,7 @@
       type="plone"
       directory="app/build/static"
       />
+
   <browser:page
     name="view"
     class=".advertisement_view.AdvertisementView"
@@ -32,6 +33,26 @@
     layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
     template="templates/advertisement_view.pt"
     />
+  <browser:page
+    for="redturtle.ads.interfaces.IAdvertisement"
+    name="edit"
+    class=".advertisement_view.DefaultEditView"
+    permission="cmf.ModifyPortalContent"
+    />
+    <adapter
+        for="redturtle.ads.interfaces.IAdsCategory
+             zope.publisher.interfaces.browser.IDefaultBrowserLayer
+             plone.dexterity.interfaces.IDexterityFTI"
+        provides="zope.publisher.interfaces.browser.IBrowserPage"
+        factory=".advertisement_view.DefaultAddView"
+        />
+    <class class=".advertisement_view.DefaultAddView">
+        <require
+            permission="cmf.AddPortalContent"
+            interface="zope.publisher.interfaces.browser.IBrowserPage"
+            />
+    </class>
+
   <browser:page
     name="view"
     class=".ads_category_view.AdsCategoryView"
