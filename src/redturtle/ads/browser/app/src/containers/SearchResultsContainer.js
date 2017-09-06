@@ -7,6 +7,13 @@ import { getSearchResults } from '../actions';
 
 export class SearchResultsContainer extends Component {
 
+  constructor(props) {
+      super(props);
+      this.state = {
+          strings: {}
+      };
+    }
+
   componentDidMount() {
     const apiUrl = document.body.dataset.portalUrl;
     axios.get(apiUrl + '/translate_string',
