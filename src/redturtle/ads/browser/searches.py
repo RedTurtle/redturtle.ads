@@ -115,3 +115,20 @@ class View(HelpersView):
             res['image_src'] = "{}/images/image/thumb".format(
                 item.absolute_url())
         return res
+
+
+class TranslateString(HelpersView):
+
+    def __call__(self):
+        """
+        return translations
+        """
+        def translate(key):
+            return self.context.translate(key,
+                                          domain='redturtle.ads',
+                                          context=self.context),
+        return json.dumps({
+            'search': translate('search'),
+            'next': translate('next'),
+            'prev': translate('prev'),
+        })

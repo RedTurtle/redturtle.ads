@@ -11,7 +11,8 @@ export class SearchFiltersContainer extends Component {
     constructor(props) {
       super(props);
       this.state = {
-          categories: []
+          categories: [],
+          strings: {}
       };
     }
 
@@ -26,6 +27,15 @@ export class SearchFiltersContainer extends Component {
           categories: result.data
         });
       })
+      axios.get(apiUrl + '/translate_string',
+      {
+        responseType: 'json',
+      })
+      .then((result)=> {
+        this.setState({
+          strings: result.data
+        });
+      })
     };
 
     submittedSearch = (e) => {
@@ -37,7 +47,6 @@ export class SearchFiltersContainer extends Component {
       this.props.changedSearchableCategory(e);
       this.submittedSearch(e);
     }
-
 
   render() {
     let SelectCategory = null;
@@ -70,7 +79,7 @@ export class SearchFiltersContainer extends Component {
             <input type="search"
                    className="form-control"
                    id="searchableText"
-                   placeholder="Search"
+                   placeholder={this.state.strings.search}
                    onChange={changedSearchableText}
                    name="searchableText" />
           </div>

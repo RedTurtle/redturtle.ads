@@ -70,6 +70,13 @@
     template="templates/bulletin_board.pt"
     />
   <browser:page
+    name="translate_string"
+    class=".searches.TranslateString"
+    permission="zope2.View"
+    for="*"
+    layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
+    />
+  <browser:page
     name="search_advertisements"
     class=".searches.View"
     permission="zope2.View"

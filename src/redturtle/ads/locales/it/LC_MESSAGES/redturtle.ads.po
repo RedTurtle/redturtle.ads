@@ -229,3 +229,12 @@ msgstr "Annuncio creato"
 #: ../events/advertisement.py:52
 msgid "subj_mail_published"
 msgstr "Annuncio pubblicato"
+
+msgid "search"
+msgstr "Cerca"
+
+msgid "prev"
+msgstr "Precedente"
+
+msgid "next"
+msgstr "Successivo"

@@ -232,3 +232,12 @@ msgstr ""
 #: ../events/advertisement.py:52
 msgid "subj_mail_published"
 msgstr ""
+
+msgid "search"
+msgstr ""
+
+msgid "previous"
+msgstr ""
+
+msgid "next"
+msgstr ""

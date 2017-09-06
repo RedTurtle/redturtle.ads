@@ -2,9 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Advertisement from '../components/Advertisement';
 import ReactPaginate from 'react-paginate';
+import axios from 'axios';
 import { getSearchResults } from '../actions';
 
 export class SearchResultsContainer extends Component {
+
+  componentDidMount() {
+    const apiUrl = document.body.dataset.portalUrl;
+    axios.get(apiUrl + '/translate_string',
+    {
+      responseType: 'json',
+    })
+    .then((result)=> {
+      this.setState({
+        strings: result.data
+      });
+    })
+  }
 
   render() {
 
@@ -24,8 +38,8 @@ export class SearchResultsContainer extends Component {
       resRender = results.map((result) => <Advertisement key={result.id} data={result} />);
       if (this.props.pagination && pagination.infos.totalPages > 1) {
         paginateRender = <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
+          previousLabel={this.state.strings.prev}
+          nextLabel={this.state.strings.next}
           breakLabel={<a href="">...</a>}
           breakClassName={'break-me'}
           pageCount={pagination.infos.totalPages}
