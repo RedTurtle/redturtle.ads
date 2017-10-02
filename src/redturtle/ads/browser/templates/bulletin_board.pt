@@ -10,8 +10,9 @@
     <metal:content-core fill-slot="content-core">
       <metal:content-core define-macro="content-core">
       <metal:listingmacro define-macro="listing">
-        <a i18n:translate="" href="${context/absolute_url}/@@create_adv?form.widgets.title=ciccio" class="pat-plone-mol">Add Advertisement</a>
+        <a i18n:translate="" href="${context/absolute_url}/@@create_adv?form.widgets.title=ciccio" class="ads-btn-add pat-plone-mol">Add Advertisement</a>
         <div id="advertisements-wrapper">
+
         </div>
         <script src="${context/portal_url}/++plone++redturtle.ads.app/js/main.js?v=${view/getAppVersion}"></script>
         <script src="${context/portal_url}/++plone++redturtle.ads/test.js"></script>

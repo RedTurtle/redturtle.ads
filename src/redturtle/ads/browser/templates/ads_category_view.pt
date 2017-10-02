@@ -12,6 +12,10 @@
         <div id="advertisements-wrapper"
              tal:attributes="data-path python:'/'.join(context.getPhysicalPath())">
         </div>
+
+        <div class="back-adv-board">
+          <a href="#">Torna alla bacheca degli annunci</a>
+        </div>
         <script src="${context/portal_url}/++plone++redturtle.ads.app/js/main.js?v=${view/getAppVersion}"></script>
       </metal:content-core>
     </metal:content-core>

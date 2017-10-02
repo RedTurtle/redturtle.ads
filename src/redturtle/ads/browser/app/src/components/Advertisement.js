@@ -39,8 +39,10 @@ class Advertisement extends Component {
         <div className="col-xs-9 col-sm-9 advertisement-infos">
           {title}
           {description}
-          {category}
-          {price}
+          <div class="adv-details">
+            {price}
+            {category}
+          </div>
         </div>
       </div>
     );
