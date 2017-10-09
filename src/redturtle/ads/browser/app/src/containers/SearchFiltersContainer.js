@@ -75,14 +75,12 @@ export class SearchFiltersContainer extends Component {
 
         <form className="form-inline"
               onSubmit={this.submittedSearch}>
-          <div className="form-group">
             <input type="search"
                    className="form-control"
                    id="searchableText"
                    placeholder={this.state.strings.search}
                    onChange={changedSearchableText}
                    name="searchableText" />
-          </div>
           <Command onClick={this.submittedSearch} />
         </form>
       </div>
