@@ -63,8 +63,17 @@
         </div>
       </div>
       <div class="additional-images" tal:condition="additional_images">
-        <tal:image repeat="image_tag additional_images">
-          <figure tal:content="structure image_tag"></figure>
+        <tal:image repeat="image additional_images">
+          <figure class="newsImageContainer" 
+              tal:define="scale_func image/@@images;
+                          scaled_image python: getattr(image.aq_explicit, 'image', False) and scale_func.scale('image', scale='thumb')"
+              tal:condition="scaled_image">
+            <a tal:define="large_image python: scale_func.scale('image', scale='large');"
+                class="pat-plone-modal" data-pat-plone-modal="image: true"
+                tal:attributes="href large_image/url">
+              <img tal:replace="structure python: scaled_image.tag(css_class='newsImage')" />
+            </a>
+          </figure>
         </tal:image>
       </div>
       <div class="back-adv-board">

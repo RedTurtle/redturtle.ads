@@ -33,7 +33,8 @@ class AdvertisementView(HelpersView):
     def getAdditionalImages(self):
         images = self.context.listFolderContents(
             contentFilter={"portal_type": "Image"})
-        return map(self.getImageScale, images)
+        # return map(self.getImageScale, images)
+        return images
 
     def extractAdsCategories(self, ads):
         results = []
