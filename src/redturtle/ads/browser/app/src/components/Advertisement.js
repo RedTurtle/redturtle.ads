@@ -30,6 +30,9 @@ class Advertisement extends Component {
           <figure><img src={data.image_src} alt={data.title}/></figure>
         </a>;
     }
+    else{
+        image = <span className="adv-nophoto"></span>
+    }
 
     return (
       <div className="row">
