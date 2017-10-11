@@ -50,7 +50,7 @@ export class SearchResultsContainer extends Component {
           breakLabel={<a href="">...</a>}
           breakClassName={'break-me'}
           pageCount={pagination.infos.totalPages}
-          marginPagesDisplayed={2}
+          marginPagesDisplayed={15}
           pageRangeDisplayed={5}
           onPageChange={handlePageChange}
           containerClassName={'pagination'}

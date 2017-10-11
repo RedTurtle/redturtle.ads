@@ -13,7 +13,7 @@ class IExternalLinkBehavior(model.Schema):
     """Behavior interface to set a recipient email for notifications.
     """
 
-    external_link = schema.TextLine(
+    external_link = schema.URI(
         title=_(
             "external_link_label",
             default=u"External link"),
@@ -21,6 +21,5 @@ class IExternalLinkBehavior(model.Schema):
             "external_link_help",
             default=u"If this advertisement is already published on another"
                     " site, insert the link here."),
-        default=u'',
         required=False,
         )

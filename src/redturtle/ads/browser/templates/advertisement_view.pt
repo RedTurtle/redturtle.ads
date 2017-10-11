@@ -22,7 +22,7 @@
 
           <span tal:omit-tag="" i18n:translate="creator_label">by</span>
           <figure>
-            <a href="http://localhost:8080/comnet/author/neko"><img src="http://localhost:8080/comnet/portal_memberdata/portraits/neko" alt="Creator portrait picture" class="portraitPhoto">
+              <a href="http://localhost:8080/comnet/author/neko"><img src="${author_infos/creator/portrait}" alt="Creator portrait picture" class="portraitPhoto">
             </a>
           </figure>
           <a tal:define="creator author_infos/creator" class="adv-author" href="${context/portal_url}/${creator/id}/author_info" title="${creator/fullname}">${creator/fullname}</a>
@@ -68,7 +68,7 @@
         </tal:image>
       </div>
       <div class="back-adv-board">
-        <a href="#">Torna alla bacheca degli annunci</a>
+          <a tal:attributes="href python: context.get_bullettin_board().absolute_url()">Torna alla bacheca degli annunci</a>
       </div>
       </metal:content-core>
     </metal:content-core>

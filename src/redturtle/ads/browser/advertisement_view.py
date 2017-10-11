@@ -44,9 +44,13 @@ class AdvertisementView(HelpersView):
                 results.append(category)
         return results
 
+    def board_url(self):
+        return self.get_ads_board
+
     def getAuthorInfos(self):
         creator_id = self.context.Creator()
         creator = api.user.get(username=creator_id)
+        pm = self.context.portal_membership
         other_advertisements = api.content.find(
             portal_type="Advertisement",
             Creator=creator_id
@@ -54,7 +58,8 @@ class AdvertisementView(HelpersView):
         return {
             "creator": {
                 'id': creator_id,
-                'fullname': creator.getProperty('fullname') or creator_id
+                'fullname': creator.getProperty('fullname') or creator_id,
+                'portrait':  pm.getPersonalPortrait(creator_id).absolute_url()
             },
             "advertisements": other_advertisements.actual_result_count,
             "categories": self.extractAdsCategories(other_advertisements)
