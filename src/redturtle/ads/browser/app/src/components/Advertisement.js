@@ -14,7 +14,7 @@ class Advertisement extends Component {
     }
 
     if (data.category) {
-      category = <div className="adv-category"><a href={data.category.url}>{data.category.title}</a></div>;
+      category = <span className="adv-category"><a href={data.category.url}>{data.category.title}</a></span>;
     }
 
     if (data.description) {
@@ -22,7 +22,7 @@ class Advertisement extends Component {
     }
 
     if (data.price) {
-      price = <div className="adv-price">{data.price}</div>;
+      price = <span className="adv-price">{data.price}</span>;
     }
 
     if (data.image_src) {
