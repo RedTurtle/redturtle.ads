@@ -1,24 +1,24 @@
 import * as types from '../constants/ActionTypes';
 import axios from 'axios';
 
-export const receiveSearchResults = (searchResults) => ({
+export const receiveSearchResults = searchResults => ({
   type: types.RECEIVE_SEARCH_RESULTS,
-  data: searchResults,
+  data: searchResults
 });
 
-export const updateSearchableText = (text) => ({
+export const updateSearchableText = text => ({
   type: types.UPDATE_SEARCHABLE_TEXT,
-  searchableText: text,
+  searchableText: text
 });
 
-export const updateSearchableCategory = (category) => ({
+export const updateSearchableCategory = category => ({
   type: types.UPDATE_SEARCHABLE_CATEGORY,
-  searchableCategory: category,
+  searchableCategory: category
 });
 
-export const unableContactBackend = (error) => ({
+export const unableContactBackend = error => ({
   type: types.UNABLE_CONTACT_BACKEND,
-  error: error,
+  error: error
 });
 
 const generateQuery = (state, pageNumber) => {
@@ -26,8 +26,8 @@ const generateQuery = (state, pageNumber) => {
 
   let params = {};
 
-  if (wrapper.dataset.path) {
-    params.path = wrapper.dataset.path;
+  if (wrapper.getAttribute('data-path')) {
+    params.path = wrapper.getAttribute('data-path');
   }
 
   if (state.searchableText.length > 0) {
@@ -45,20 +45,21 @@ const generateQuery = (state, pageNumber) => {
   return params;
 };
 
-export const getSearchResults = (pageNumber) => (dispatch, getState) => {
-  const apiUrl = document.body.dataset.portalUrl;
+export const getSearchResults = pageNumber => (dispatch, getState) => {
+  const apiUrl = document.body.getAttribute('data-portal-url');
   const state = getState();
 
-  axios.get(
-    apiUrl + '/search_advertisements',
-    {
+  axios
+    .get(apiUrl + '/search_advertisements', {
       params: generateQuery(state, pageNumber),
-      responseType: 'json',
-    }
-  ).then(response => {
-      return dispatch(receiveSearchResults(response.data?response.data:[]));
-  });
+      responseType: 'json'
+    })
+    .then(response => {
+      return dispatch(receiveSearchResults(response.data ? response.data : []));
+    });
 };
 
-export const changedSearchableText = (e) => dispatch => dispatch(updateSearchableText(e.target.value));
-export const changedSearchableCategory = (e) => dispatch => dispatch(updateSearchableCategory(e.target.value));
+export const changedSearchableText = e => dispatch =>
+  dispatch(updateSearchableText(e.target.value));
+export const changedSearchableCategory = e => dispatch =>
+  dispatch(updateSearchableCategory(e.target.value));

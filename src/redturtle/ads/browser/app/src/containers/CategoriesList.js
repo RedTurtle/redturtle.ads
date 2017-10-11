@@ -11,7 +11,7 @@ export default class CategoriesList extends Component {
   }
 
   componentDidMount() {
-    const apiUrl = document.body.dataset.portalUrl;
+    const apiUrl = document.body.getAttribute('data-portal-url');
     axios.get(apiUrl + '/search_categories',
     {
       responseType: 'json',

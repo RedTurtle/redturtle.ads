@@ -15,7 +15,7 @@ export class SearchResultsContainer extends Component {
     }
 
   componentDidMount() {
-    const apiUrl = document.body.dataset.portalUrl;
+    const apiUrl = document.body.getAttribute('data-portal-url');
     axios.get(apiUrl + '/translate_string',
     {
       responseType: 'json',

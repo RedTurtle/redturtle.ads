@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 export default class AddNewAdvertisementContainer extends Component {
 
   render() {
-    const apiUrl = document.body.dataset.portalUrl;
+    const apiUrl = document.body.getAttribute('data-portal-url');
     const url = apiUrl + '/@@create_adv'
     return (
         <div className="add-category">
