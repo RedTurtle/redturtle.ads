@@ -11,62 +11,73 @@
       <metal:content-core define-macro="content-core"
                           tal:define="price context/price|nothing;
                                       text context/text|nothing;
-                                      external_url context/external_url|nothing;
+                                      external_url context/external_link|nothing;
                                       principal_image view/getPrincipalImage;
                                       additional_images view/getAdditionalImages;
                                       category view/getCategory;
                                       effective context/Date;
                                       author_infos view/getAuthorInfos">
-      <div class="row">
-        <div class="col-xs-4 col-sm-4 advertisement-infos">
-          <div class="panel panel-default">
-            <div class="panel-heading" i18n:translate="infos_label">Infos</div>
-            <div class="panel-body">
-              <div class="row infos-item"
-                   tal:condition="price">
-                <div class="col-xs-6 col-sm-6"><strong i18n:translate="price_label">Price</strong></div>
-                <div class="col-xs-6 col-sm-6">${price}</div>
-              </div>
-              <div class="row infos-item"
-                   tal:condition="category">
-                <div class="col-xs-6 col-sm-6"><strong i18n:translate="category_label">Category</strong></div>
-                <div class="col-xs-6 col-sm-6"><a href="${category/url}" title="${category/title}">${category/title}</a></div>
-              </div>
-              <div class="row infos-item"
-                   tal:condition="effective">
-                <div class="col-xs-6 col-sm-6"><strong i18n:translate="published_label">Published</strong></div>
-                <div class="col-xs-6 col-sm-6" tal:content="python:view.getFormattedDate(effective)"></div>
-              </div>
-              <div class="row infos-item"
-                   tal:condition="external_url">
-                <div class="col-xs-6 col-sm-6"><strong i18n:translate="external_link_label">External link</strong></div>
-                <div class="col-xs-6 col-sm-6"><a href="${external_url}" title="Go to external link">${external_url}</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-8 col-sm-8 advertisement-details"
+
+      <div tal:condition="author_infos" class="author-infos">
+
+          <span tal:omit-tag="" i18n:translate="creator_label">by</span>
+          <figure>
+              <a href="http://localhost:8080/comnet/author/neko"><img src="${author_infos/creator/portrait}" alt="Creator portrait picture" class="portraitPhoto">
+            </a>
+          </figure>
+          <a tal:define="creator author_infos/creator" class="adv-author" href="${context/portal_url}/${creator/id}/author_info" title="${creator/fullname}">${creator/fullname}</a>
+
+        <span class="adv-number" tal:define="advertisements author_infos/advertisements">(
+          ${advertisements}
+          <tal:single condition="python:advertisements == 1" i18n:translate="advertisement_label">advertisement created</tal:single>
+          <tal:single condition="python:advertisements != 1" i18n:translate="advertisements_label">advertisements created</tal:single>
+        )</span>
+      </div>
+
+      <div class="adv-row">
+        <div class="advertisement-details"
              tal:condition="python:text or principal_image">
           <!-- <figure class="image-right" tal:condition="principal_image" tal:content="structure principal_image"></figure> -->
           <div tal:condition="text" tal:replace="structure text/output"></div>
         </div>
+        <div class="advertisement-infos">
+            <h5 i18n:translate="infos_label">Infos</h5>
+            <ul>
+              <li tal:condition="price" class="adv-info-price">
+                <h6 i18n:translate="price_label">Price</h6>
+                <p>${price}</p>
+              </li>
+              <li tal:condition="category" class="adv-info-category">
+                <h6 i18n:translate="category_label">Category</h6>
+                <p><a href="${category/url}" title="${category/title}">${category/title}</a></p>
+              </li>
+              <li tal:condition="effective" class="adv-info-date">
+                <h6 i18n:translate="published_label">Published</h6>
+                <p tal:content="python:view.getFormattedDate(effective)"></p>
+              </li>
+              <li tal:condition="external_url" class="adv-info-url">
+                <h6 i18n:translate="external_link_label">External link</h6>
+                <p><a href="${external_url}" title="Go to external link">${external_url}</a></p>
+              </li>
+            </ul>
+        </div>
       </div>
       <div class="additional-images" tal:condition="additional_images">
-        <tal:image repeat="image_tag additional_images">
-          <figure tal:content="structure image_tag"></figure>
+        <tal:image repeat="image additional_images">
+          <figure class="newsImageContainer" 
+              tal:define="scale_func image/@@images;
+                          scaled_image python: getattr(image.aq_explicit, 'image', False) and scale_func.scale('image', scale='thumb')"
+              tal:condition="scaled_image">
+            <a tal:define="large_image python: scale_func.scale('image', scale='large');"
+                class="pat-plone-modal" data-pat-plone-modal="image: true"
+                tal:attributes="href large_image/url">
+              <img tal:replace="structure python: scaled_image.tag(css_class='newsImage')" />
+            </a>
+          </figure>
         </tal:image>
       </div>
-      <div tal:condition="author_infos" class="author-infos row">
-        <div class="col-xs-6 col-sm-6"
-             tal:define="creator author_infos/creator">
-          <a href="${context/portal_url}/${creator/id}/author_info" title="${creator/fullname}">${creator/fullname}</a>
-        </div>
-        <div class="col-xs-6 col-sm-6"
-             tal:define="advertisements author_infos/advertisements">
-          ${advertisements}
-          <tal:single condition="python:advertisements == 1" i18n:translate="advertisement_label">advertisement created</tal:single>
-          <tal:single condition="python:advertisements != 1" i18n:translate="advertisements_label">advertisements created</tal:single>
-        </div>
+      <div class="back-adv-board">
+          <a tal:attributes="href python: context.get_bullettin_board().absolute_url()">Torna alla bacheca degli annunci</a>
       </div>
       </metal:content-core>
     </metal:content-core>

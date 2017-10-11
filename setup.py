@@ -32,7 +32,7 @@ setup(
     author_email='sviluppoplone@redturtle.it',
     url='https://pypi.python.org/pypi/redturtle.ads',
     license='GPL version 2',
-    packages=find_packages('src', exclude=['ez_setup']),
+    packages=find_packages('src', exclude=['ez_setup', 'node_modules']),
     namespace_packages=['redturtle'],
     package_dir={'': 'src'},
     include_package_data=True,

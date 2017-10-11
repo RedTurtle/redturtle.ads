@@ -48,7 +48,7 @@ class View(HelpersView):
     '''
 
     def __call__(self):
-        b_size = self.request.form.get('b_size', 2)
+        b_size = self.request.form.get('b_size', 20)
         b_start = self.request.form.get('b_start', 0)
         if not isinstance(b_start, int):
             b_start = int(b_start)

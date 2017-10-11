@@ -125,12 +125,12 @@ msgstr "Testo di aiuto per l'annuncio"
 #. Default: "advertisement created"
 #: ../browser/templates/advertisement_view.pt:67
 msgid "advertisement_label"
-msgstr "Annuncio creato"
+msgstr "annuncio creato"
 
 #. Default: "advertisements created"
 #: ../browser/templates/advertisement_view.pt:68
 msgid "advertisements_label"
-msgstr "Annuncio creato"
+msgstr "annunci creati"
 
 #. Default: "Category"
 #: ../browser/templates/advertisement_view.pt:32
