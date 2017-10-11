@@ -5,12 +5,13 @@ from Products.CMFPlone.utils import safe_hasattr
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from zope.i18n import translate
-# from zope.pagetemplate.pagetemplatefile import PageTemplateFile
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from redturtle.ads import _
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 from Products.CMFPlone.interfaces.controlpanel import IMailSchema
+import logging
+logger = logging.getLogger(__name__)
 
 
 def send_email(emails, message_text, subject, sender=None):
@@ -41,11 +42,20 @@ def send_email(emails, message_text, subject, sender=None):
 
 def send_email_on_publish(advertisement):
     creator = api.user.get(username=advertisement.Creator())
-    emails = [creator.getProperty('email'), ]
+    creator_email = creator.getProperty('email')
+    if not creator_email:
+        logger.warning(
+            'Publish mail not send to {}. The user has no email set.'.format(
+                advertisement.Creator()
+            )
+        )
+        return
+    emails = [creator_email, ]
     options = {
-        'msg1': translate(_("Dear ${fullname}",
-                          mapping={'fullname': creator.getProperty('fullname')}), # noqa
-                          context=advertisement.REQUEST),
+        'msg1': translate(
+            _("Dear ${fullname}",
+                mapping={'fullname': creator.getProperty('fullname')}),
+                context=advertisement.REQUEST),
         'msg2': translate(_("We send this mail to inform you an advertisement"
                             " submitted from you has been approved and"
                             " published."),
