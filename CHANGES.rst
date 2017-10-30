@@ -8,6 +8,7 @@ Changelog
 - Fix ads add link
 - Fix "back to board" link in category
 - Fix translation on "select category" menu
+- Fix typo in workflow binding
   [lucabel]
 
 
