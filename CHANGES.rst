@@ -5,7 +5,8 @@ Changelog
 0.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add class to style add ads button
+  [lucabel]
 
 
 0.2.1 (2017-10-30)
