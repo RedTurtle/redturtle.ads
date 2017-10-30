@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.2 (unreleased)
+0.2.2 (2017-10-30)
 ------------------
 
 - Fix pat-plone-modal class in "add advertisement" button
