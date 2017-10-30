@@ -5,7 +5,8 @@ Changelog
 0.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix pat-plone-modal class in "add advertisement" button
+  [cekk]
 
 
 0.2.1 (2017-10-30)
