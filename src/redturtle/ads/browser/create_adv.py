@@ -23,7 +23,7 @@ from zope.schema import getFieldsInOrder
 class CreateAdv(form.AddForm):
 
     ignoreContext = True
-    label = u"Create a new Adv"
+    label = _("add_adv_label", default=u"Create a new Adv")
     portal_type = 'Advertisement'
 
     @property
