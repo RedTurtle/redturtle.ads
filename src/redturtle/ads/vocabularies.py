@@ -21,4 +21,5 @@ class CategoriesVocabulary(object):
         terms.insert(0, SimpleVocabulary.createTerm('', '', '-- no value --'))
         return SimpleVocabulary(terms)
 
+
 CategoriesVocabularyFactory = CategoriesVocabulary()

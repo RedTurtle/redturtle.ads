@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-from Products.CMFPlone.resources import add_resource_on_request
 from plone import api
-from redturtle.ads.browser.helpers_view import HelpersView
-from plone.dexterity.browser.edit import DefaultEditForm as BaseEdit
 from plone.dexterity.browser.add import DefaultAddForm as BaseAddForm
 from plone.dexterity.browser.add import DefaultAddView as BaseAddView
-
-from zope.interface import classImplements
+from plone.dexterity.browser.edit import DefaultEditForm as BaseEdit
 from plone.dexterity.interfaces import IDexterityEditForm
-from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile as Z3VPTF
 from plone.z3cform import layout
+from Products.CMFPlone.resources import add_resource_on_request
+from redturtle.ads.browser.helpers_view import HelpersView
 from z3c.form.field import Fields
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile as Z3VPTF  # noqa
+from zope.interface import classImplements
+
 import zope
 
 

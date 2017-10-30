@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 from DateTime import DateTime
-from plone import api
-from Products.CMFPlone.utils import safe_hasattr
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from zope.i18n import translate
+from plone import api
+from plone.registry.interfaces import IRegistry
+from Products.CMFPlone.interfaces.controlpanel import IMailSchema
+from Products.CMFPlone.utils import safe_hasattr
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from redturtle.ads import _
-from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
-from Products.CMFPlone.interfaces.controlpanel import IMailSchema
+from zope.i18n import translate
+
 import logging
+
+
 logger = logging.getLogger(__name__)
 
 
@@ -62,10 +65,12 @@ def send_email_on_publish(advertisement):
                           context=advertisement.REQUEST),
         'msg3': translate(_("You can see it here:"),
                           context=advertisement.REQUEST),
-        'msg4': translate(_("According to actual site policy, the advertisement"
-                            " will be visible since ${expiration_date}",
-                          mapping={'expiration_date': advertisement.expiration_date.strftime('%Y/%m/%d')}), # noqa
-                          context=advertisement.REQUEST),
+        'msg4': translate(
+            _(
+                u"According to actual site policy, the advertisement will be visible since ${expiration_date}",  # noqa
+                mapping={'expiration_date': advertisement.expiration_date.strftime('%Y/%m/%d')}  # noqa
+            ),
+            context=advertisement.REQUEST),
         'msg5': translate(_("Best regards"), context=advertisement.REQUEST),
         'adv_url': advertisement.absolute_url(),
         'adv_title': advertisement.title,
@@ -104,12 +109,15 @@ def send_email_on_creation(advertisement, recipient):
     creator = api.user.get(username=advertisement.Creator())
     emails = [recipient, ]
     options = {
-        'msg1': translate(_("The user ${fullname}",
-                          mapping={'fullname': "{} ({})".format(creator.getProperty('fullname'), creator.getProperty('email'))}), # noqa
-                          context=advertisement.REQUEST),
-        'msg2': translate(_("Has submitted a new advertisement. Please evaluate"
-                            " his content and eventually publish it."),
-                          context=advertisement.REQUEST),
+        'msg1': translate(
+            _(
+                "The user ${fullname}",
+                mapping={'fullname': "{} ({})".format(creator.getProperty('fullname'), creator.getProperty('email'))}),  # noqa
+            context=advertisement.REQUEST),
+        'msg2': translate(
+            _("Has submitted a new advertisement. Please evaluate"
+              " his content and eventually publish it."),
+            context=advertisement.REQUEST),
         'msg3': translate(_("You can see it here:"),
                           context=advertisement.REQUEST),
         'adv_url': advertisement.absolute_url(),

@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-from Products.CMFPlone.resources import add_resource_on_request
-from Products.Five.browser import BrowserView
-from plone import api
 from plone.app.contenttypes.browser.folder import FolderView
+from Products.CMFPlone.resources import add_resource_on_request
 from redturtle.ads.browser.helpers_view import HelpersView
 
 

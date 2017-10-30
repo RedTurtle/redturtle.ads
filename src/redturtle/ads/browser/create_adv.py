@@ -1,20 +1,23 @@
 # -*- coding: utf-8 -*-
-
 from Acquisition import aq_base
 from Acquisition.interfaces import IAcquirer
-from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile as Z3VPTF
 from plone.app.uuid.utils import uuidToObject
-from plone.app.z3cform.widget import SelectFieldWidget
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.dexterity.utils import addContentToContainer
 from redturtle.ads import _
-from redturtle.ads.interfaces import IAdvertisement, IRedturtleAdvBehavior
-from z3c.form import form, button
+from redturtle.ads.interfaces import IAdvertisement
+from redturtle.ads.interfaces import IRedturtleAdvBehavior
+from z3c.form import button
+from z3c.form import form
 from z3c.form.field import Fields
-from zope.component import getUtility, createObject
+from zope import schema
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile as Z3VPTF  # noqa
+from zope.component import createObject
+from zope.component import getUtility
 from zope.dottedname.resolve import resolve
+from zope.event import notify
+from zope.lifecycleevent import ObjectCreatedEvent
 from zope.schema import getFieldsInOrder
-import zope
 
 
 class CreateAdv(form.AddForm):
@@ -26,7 +29,7 @@ class CreateAdv(form.AddForm):
     @property
     def fields(self):
         """
-        Advertisement schema is based on redturtle.ads.interfaces.IAdvertisement
+        Advertisement schema is based on IAdvertisement
         and different plone behavior.
         Base schema class right now it's empty. We want to return base behavior
         and variuos specific ones.
@@ -60,7 +63,7 @@ class CreateAdv(form.AddForm):
 
         # this will contain the list of all the field we want
 
-        ads_category = zope.schema.Choice(
+        ads_category = schema.Choice(
             __name__='ads_category',
             title=_(u'ads_category_title', default=u'Category'),
             vocabulary='redturtle.ads.vocabularies.categories',
@@ -69,14 +72,14 @@ class CreateAdv(form.AddForm):
         )
 
         help_text = self.context.get_ads_help_text().decode('utf-8')
-        ads_help_text = zope.schema.Text(
+        ads_help_text = schema.Text(
             __name__='helptext',
             title=u'',
             required=False,
             default=help_text
         )
         privacy_text = self.context.get_privacy_text().decode('utf-8')
-        ads_privacy_text = zope.schema.Text(
+        ads_privacy_text = schema.Text(
             __name__='privacytext',
             title=u'',
             required=False,
@@ -108,7 +111,7 @@ class CreateAdv(form.AddForm):
         fields_list.append(ads_privacy_text)
         return Fields(*fields_list)
 
-        fields['ads_category'].widgetFactory = SelectFieldWidget  # noqa
+        # fields['ads_category'].widgetFactory = SelectFieldWidget  # noqa
 
     def updateWidgets(self):
         super(CreateAdv, self).updateWidgets()
@@ -128,7 +131,7 @@ class CreateAdv(form.AddForm):
 
     def createAndAdd(self, data):
         obj = self.create(data)
-        zope.event.notify(zope.lifecycleevent.ObjectCreatedEvent(obj))
+        notify(ObjectCreatedEvent(obj))
         self.add(obj, data)
         return obj
 
