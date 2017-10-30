@@ -15,7 +15,6 @@
 
         </div>
         <script src="${context/portal_url}/++plone++redturtle.ads.app/js/main.js?v=${view/getAppVersion}"></script>
-        <!--script src="${context/portal_url}/++plone++redturtle.ads/test.js"></script-->
        </metal:listingmacro>
       </metal:content-core>
     </metal:content-core>
