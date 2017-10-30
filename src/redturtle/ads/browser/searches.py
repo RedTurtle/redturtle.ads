@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-# from Products.CMFPlone.resources import add_resource_on_request
-# from Products.Five.browser import BrowserView
 from plone import api
-import json
-from redturtle.ads.browser.helpers_view import HelpersView
 from plone.app.contentlisting.interfaces import IContentListing
 from Products.CMFPlone.PloneBatch import Batch
-# from plone.app.uuid.utils import uuidToObject
+from redturtle.ads import _
+from redturtle.ads.browser.helpers_view import HelpersView
+from zope.i18n import translate
+import json
 
 
 class SearchCategories(HelpersView):
@@ -26,12 +25,12 @@ class SearchCategories(HelpersView):
         json_result = map(self.formatResponse, results)
         self.request.response.setHeader("Content-type", "application/json")
         self.request.response.setHeader("Access-Control-Allow-Origin", "*")
+        select_category_label = translate(
+            _('select_category_label', default=u"-- select category --"),
+            context=self.context.REQUEST)
         json_result.insert(0, {'id': '',
                                'path': '',
-                               'title': self.context.translate(
-                                          '-- select category --',
-                                          domain='redturtle.ads',
-                                          context=self.context),})
+                               'title': select_category_label})
         return json.dumps(json_result)
 
     def formatResponse(self, brain):
@@ -126,12 +125,8 @@ class TranslateString(HelpersView):
         """
         return translations
         """
-        def translate(key):
-            return self.context.translate(key,
-                                          domain='redturtle.ads',
-                                          context=self.context),
         return json.dumps({
-            'search': translate('search'),
-            'next': translate('next'),
-            'prev': translate('prev'),
+            'search': translate(_(u'search'), context=self.request),
+            'next': translate(_(u'next'), context=self.request),
+            'prev': translate(_(u'previous'), context=self.request),
         })

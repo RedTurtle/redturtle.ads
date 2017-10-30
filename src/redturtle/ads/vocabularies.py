@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from redturtle.ads import _
+from zope.i18n import translate
 from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
@@ -18,7 +20,11 @@ class CategoriesVocabulary(object):
         terms = map(
             lambda x: SimpleVocabulary.createTerm(x.UID(), x.UID(), x.title),
             categories)
-        terms.insert(0, SimpleVocabulary.createTerm('', '', '-- no value --'))
+        no_value_label = translate(
+            _('no_value_label', default=u"-- no value --"),
+            context=context.REQUEST)
+        terms.insert(0, SimpleVocabulary.createTerm('', '', no_value_label))
         return SimpleVocabulary(terms)
+
 
 CategoriesVocabularyFactory = CategoriesVocabulary()
