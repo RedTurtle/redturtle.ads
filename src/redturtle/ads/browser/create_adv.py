@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*-
-
 from Acquisition import aq_base
 from Acquisition.interfaces import IAcquirer
-from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile as Z3VPTF  # noqa
 from plone.app.uuid.utils import uuidToObject
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.dexterity.utils import addContentToContainer
 from redturtle.ads import _
-from redturtle.ads.interfaces import IAdvertisement, IRedturtleAdvBehavior
-from z3c.form import form, button
+from redturtle.ads.interfaces import IAdvertisement
+from redturtle.ads.interfaces import IRedturtleAdvBehavior
+from z3c.form import button
+from z3c.form import form
 from z3c.form.field import Fields
-from zope.component import getUtility, createObject
+from zope import schema
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile as Z3VPTF  # noqa
+from zope.component import createObject
+from zope.component import getUtility
 from zope.dottedname.resolve import resolve
-from zope.schema import getFieldsInOrder
 from zope.event import notify
 from zope.lifecycleevent import ObjectCreatedEvent
-from zope import schema
-from zope.i18n import translate
+from zope.schema import getFieldsInOrder
 
 
 class CreateAdv(form.AddForm):
@@ -28,8 +29,8 @@ class CreateAdv(form.AddForm):
     @property
     def fields(self):
         """
-        Advertisement schema is based on IAdvertisement and different plone
-        behaviors.
+        Advertisement schema is based on IAdvertisement
+        and different plone behavior.
         Base schema class right now it's empty. We want to return base behavior
         and variuos specific ones.
         Base ones are:

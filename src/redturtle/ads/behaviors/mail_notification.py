@@ -17,7 +17,8 @@ class IRecipientEmailBehavior(model.Schema):
             default=u"Recipient email"),
         description=_(
             "recipient_email_help",
-            default=u"Insert an email address that will be notified for every new advertisement."),
+            default=u"Insert an email address that will be notified for every"
+                    u" new advertisement."),
         default=u'',
         required=False,
         )

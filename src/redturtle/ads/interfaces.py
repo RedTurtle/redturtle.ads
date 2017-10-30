@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
 
+from plone.app.textfield import RichText
+from plone.supermodel import model
 from redturtle.ads import _
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from plone.supermodel import model
-from plone.app.textfield import RichText
 
 
 class IRedturtleAdsLayer(IDefaultBrowserLayer):
@@ -16,40 +16,40 @@ class IBulletinBoard(model.Schema):
 
     presentation_text = RichText(
         title=_(
-            "presentation_text_label",
-            default=u"Presentation text"),
+            'presentation_text_label',
+            default=u'Presentation text'),
         default_mime_type='text/html',
         output_mime_type='text/html',
         allowed_mime_types=('text/html', 'text/plain',),
-        default=u""
+        default=u''
     )
 
     ads_help_text = RichText(
         title=_(
-            "ads_help_text_label",
-            default=u"Advertisement help text"),
+            'ads_help_text_label',
+            default=u'Advertisement help text'),
         description=_(
-            "ads_help_text_help",
-            default=u"Insert some help text that will be rendered when an user"
-                    " creates a new advertisement."),
+            'ads_help_text_help',
+            default=u'Insert some help text that will be rendered when an user'
+                    ' creates a new advertisement.'),
         default_mime_type='text/html',
         output_mime_type='text/html',
         allowed_mime_types=('text/html', 'text/plain',),
-        default=u""
+        default=u''
     )
 
     privacy_text = RichText(
         title=_(
-            "privacy_text_label",
-            default=u"Privacy text"),
+            'privacy_text_label',
+            default=u'Privacy text'),
         description=_(
-            "privacy_text_help",
-            default=u"Insert a privacy policy text that will be rendered when"
-                    " an user creates a new advertisement."),
+            'privacy_text_help',
+            default=u'Insert a privacy policy text that will be rendered when'
+                    ' an user creates a new advertisement.'),
         default_mime_type='text/html',
         output_mime_type='text/html',
         allowed_mime_types=('text/html', 'text/plain',),
-        default=u""
+        default=u''
     )
 
 
