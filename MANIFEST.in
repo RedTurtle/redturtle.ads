@@ -2,4 +2,4 @@ graft src/redturtle
 graft docs
 include *.rst
 global-exclude *.pyc
-global-exclude src/redturtle/ads/browser/app/node_modules/
+global-exclude src/redturtle/ads/browser/app/node_modules
