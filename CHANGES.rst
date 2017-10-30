@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.1 (unreleased)
+0.2.1 (2017-10-30)
 ------------------
 
 - Fix ads add link
