@@ -5,7 +5,8 @@ Changelog
 0.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix translations
+  [cekk]
 
 
 0.2.2 (2017-10-30)
