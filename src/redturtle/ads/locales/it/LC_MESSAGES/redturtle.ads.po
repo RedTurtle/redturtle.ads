@@ -238,3 +238,6 @@ msgstr "Precedente"
 
 msgid "next"
 msgstr "Successivo"
+
+msgid "-- select category --"
+msgstr "-- Seleziona una categoria --"

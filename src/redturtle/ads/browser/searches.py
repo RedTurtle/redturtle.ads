@@ -28,7 +28,10 @@ class SearchCategories(HelpersView):
         self.request.response.setHeader("Access-Control-Allow-Origin", "*")
         json_result.insert(0, {'id': '',
                                'path': '',
-                               'title': '-- select category --'})
+                               'title': self.context.translate(
+                                          '-- select category --',
+                                          domain='redturtle.ads',
+                                          context=self.context),})
         return json.dumps(json_result)
 
     def formatResponse(self, brain):
