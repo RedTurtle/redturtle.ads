@@ -9,7 +9,7 @@ Changelog
   [cekk]
 
 0.1.0a1 (unreleased)
-------------------
+--------------------
 
 - Initial release.
   [cekk]
