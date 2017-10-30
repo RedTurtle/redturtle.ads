@@ -5,9 +5,10 @@ Changelog
 0.2.2 (unreleased)
 ------------------
 
+- Fix pat-plone-modal class in "add advertisement" button
+  [cekk]
 - Add class to style add ads button
   [lucabel]
-
 
 0.2.1 (2017-10-30)
 ------------------
