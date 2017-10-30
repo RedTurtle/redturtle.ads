@@ -5,7 +5,10 @@ Changelog
 0.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix ads add link
+- Fix "back to board" link in category
+- Fix translation on "select category" menu
+  [lucabel]
 
 
 0.2.0 (2017-10-30)
