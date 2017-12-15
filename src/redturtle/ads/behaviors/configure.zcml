@@ -31,4 +31,14 @@
     for="plone.dexterity.interfaces.IDexterityContent"
     />
 
+  <plone:behavior
+    name="ads.additionalimage"
+    title="Additional image"
+    description="Adds image and image caption fields"
+    provides=".additionalimage.IAdditionalImage"
+    factory=".additionalimage.AdditionalImage"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    marker=".additionalimage.IAdditionalImage"
+    />
+
 </configure>
