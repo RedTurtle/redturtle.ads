@@ -46,7 +46,7 @@ const generateQuery = (state, pageNumber) => {
 };
 
 export const getSearchResults = pageNumber => (dispatch, getState) => {
-  const apiUrl = document.body.getAttribute('data-portal-url');
+  const apiUrl = document.body.getAttribute('data-base-url');
   const state = getState();
 
   axios

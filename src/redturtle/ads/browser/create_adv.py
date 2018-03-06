@@ -25,6 +25,7 @@ class CreateAdv(form.AddForm):
     ignoreContext = True
     label = _("add_adv_label", default=u"Create a new Adv")
     portal_type = 'Advertisement'
+    iface = IAdvertisement
 
     @property
     def fields(self):
@@ -87,11 +88,8 @@ class CreateAdv(form.AddForm):
         )
 
         fields_list = [ads_help_text, ads_category]
-        # add at the list all the fields taken from the base schema
-        for field_name, fieldobj in getFieldsInOrder(IAdvertisement):
-            fields_list.append(fieldobj)
 
-        for behavior in self.context.portal_types['Advertisement'].behaviors:
+        for behavior in self.context.portal_types[self.portal_type].behaviors:
 
             # add at the list all the fields taken from the base behavior
             iface = resolve(behavior)
@@ -108,6 +106,10 @@ class CreateAdv(form.AddForm):
             else:
                 continue
 
+        # add at the list all the fields taken from the base schema
+        for field_name, fieldobj in getFieldsInOrder(self.iface):
+            fields_list.append(fieldobj)
+
         fields_list.append(ads_privacy_text)
         return Fields(*fields_list)
 
@@ -117,6 +119,8 @@ class CreateAdv(form.AddForm):
         super(CreateAdv, self).updateWidgets()
         self.widgets['helptext'].template = Z3VPTF('templates/customtext.pt')  # noqa
         self.widgets['privacytext'].template = Z3VPTF('templates/customtext.pt')  # noqa
+
+
 
     @button.buttonAndHandler(_('Add'), name='add')
     def handleAdd(self, action):

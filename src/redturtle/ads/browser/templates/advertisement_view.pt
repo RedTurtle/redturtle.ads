@@ -22,7 +22,7 @@
 
           <span tal:omit-tag="" i18n:translate="creator_label">by</span>
           <figure>
-              <a href="http://localhost:8080/comnet/author/neko"><img src="${author_infos/creator/portrait}" alt="Creator portrait picture" class="portraitPhoto">
+              <a href="${context/portal_url}/author/${author_infos/creator/id}"><img src="${author_infos/creator/portrait}" alt="Creator portrait picture" class="portraitPhoto">
             </a>
           </figure>
           <a tal:define="creator author_infos/creator" class="adv-author" href="${context/portal_url}/${creator/id}/author_info" title="${creator/fullname}">${creator/fullname}</a>

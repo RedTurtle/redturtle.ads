@@ -5,7 +5,8 @@ Changelog
 0.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Allow create_adv to be more flexible
+  [lucabel]
 
 
 0.2.3 (2017-10-30)
