@@ -8,7 +8,6 @@ Changelog
 - Allow create_adv to be more flexible
   [lucabel]
 
-
 0.2.3 (2017-10-30)
 ------------------
 

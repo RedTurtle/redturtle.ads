@@ -22,14 +22,16 @@ def send_email(emails, message_text, subject, sender=None):
     if not sender:
         # get from the site
         registry = getUtility(IRegistry)
-        mail_settings = registry.forInterface(IMailSchema, prefix="plone")
+        mail_settings = registry.forInterface(IMailSchema, prefix='plone')
         sender = mail_settings.email_from_address
 
     if not sender:
         api.portal.show_message(
             translate(_('no_sender_mail',
-                        default="No mail sender found;"
-                                " the mail will not be sent."))
+                        default='No mail sender found;'
+                                ' the mail will not be sent.')),
+            type='warning',
+            request=api.portal.get().REQUEST
         )
         return ''
     for email in emails:
@@ -48,7 +50,7 @@ def send_email_on_publish(advertisement):
     creator_email = creator.getProperty('email')
     if not creator_email:
         logger.warning(
-            'Publish mail not send to {}. The user has no email set.'.format(
+            'Publish mail not send to {0}. The user has no email set.'.format(
                 advertisement.Creator()
             )
         )
@@ -56,22 +58,22 @@ def send_email_on_publish(advertisement):
     emails = [creator_email, ]
     options = {
         'msg1': translate(
-            _("Dear ${fullname}",
+            _('Dear ${fullname}',
                 mapping={'fullname': creator.getProperty('fullname')}),
                 context=advertisement.REQUEST),
-        'msg2': translate(_("We send this mail to inform you an advertisement"
-                            " submitted from you has been approved and"
-                            " published."),
+        'msg2': translate(_('We send this mail to inform you an advertisement'
+                            ' submitted from you has been approved and'
+                            ' published.'),
                           context=advertisement.REQUEST),
-        'msg3': translate(_("You can see it here:"),
+        'msg3': translate(_('You can see it here:'),
                           context=advertisement.REQUEST),
         'msg4': translate(
             _(
-                u"According to actual site policy, the advertisement will be visible since ${expiration_date}",  # noqa
+                u'According to actual site policy, the advertisement will be visible since ${expiration_date}',  # noqa
                 mapping={'expiration_date': advertisement.expiration_date.strftime('%Y/%m/%d')}  # noqa
             ),
             context=advertisement.REQUEST),
-        'msg5': translate(_("Best regards"), context=advertisement.REQUEST),
+        'msg5': translate(_('Best regards'), context=advertisement.REQUEST),
         'adv_url': advertisement.absolute_url(),
         'adv_title': advertisement.title,
         'expiration_date': advertisement.expiration_date
@@ -111,14 +113,18 @@ def send_email_on_creation(advertisement, recipient):
     options = {
         'msg1': translate(
             _(
-                "The user ${fullname}",
-                mapping={'fullname': "{} ({})".format(creator.getProperty('fullname'), creator.getProperty('email'))}),  # noqa
+                'The user ${fullname}',
+                mapping={'fullname': '{0} ({1})'.format(
+                    creator.getProperty('fullname'),
+                    creator.getProperty('email')
+                )
+            }),  # noqa
             context=advertisement.REQUEST),
         'msg2': translate(
-            _("Has submitted a new advertisement. Please evaluate"
-              " his content and eventually publish it."),
+            _('Has submitted a new advertisement. Please evaluate'
+              ' his content and eventually publish it.'),
             context=advertisement.REQUEST),
-        'msg3': translate(_("You can see it here:"),
+        'msg3': translate(_('You can see it here:'),
                           context=advertisement.REQUEST),
         'adv_url': advertisement.absolute_url(),
         'adv_title': advertisement.title,

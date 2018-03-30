@@ -217,3 +217,4 @@ msgstr "Annuncio creato"
 #: ../events/advertisement.py:78
 msgid "subj_mail_published"
 msgstr "Annuncio pubblicato"
+
