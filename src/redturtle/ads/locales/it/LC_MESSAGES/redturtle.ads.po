@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-30 14:23+0000\n"
+"POT-Creation-Date: 2018-04-03 14:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../events/advertisement.py:65
+#: ../events/advertisement.py:71
 msgid "According to actual site policy, the advertisement will be visible since ${expiration_date}"
 msgstr "Secondo le policy del sito, l'annuncio sarà visibile fino al ${expiration_date}"
 
-#: ../browser/create_adv.py:120
+#: ../browser/create_adv.py:125
 msgid "Add"
 msgstr "Aggiungi"
 
@@ -26,15 +26,55 @@ msgstr "Aggiungi"
 msgid "Add Advertisement"
 msgstr "Aggiungi un annuncio"
 
+#: ../behaviors/configure.zcml:42
+msgid "Additional image"
+msgstr ""
+
+#: ../behaviors/configure.zcml:25
+msgid "Adds a price field"
+msgstr ""
+
+#: ../behaviors/configure.zcml:32
+msgid "Adds an external link field"
+msgstr ""
+
+#: ../behaviors/configure.zcml:42
+msgid "Adds image and image caption fields"
+msgstr ""
+
+#: ../behaviors/configure.zcml:11
+msgid "Adds the ability to force exipiration days of an advertisement"
+msgstr ""
+
+#: ../behaviors/configure.zcml:18
+msgid "Adds the ability to set an email address that will be notified for every new advertisement"
+msgstr ""
+
 #: ../profiles/default/types/Advertisement.xml
 msgid "Advertisement"
 msgstr "Annuncio"
+
+#: ../behaviors/configure.zcml:18
+msgid "Advertisement email notifications"
+msgstr ""
+
+#: ../behaviors/configure.zcml:11
+msgid "Advertisement expiration days"
+msgstr ""
+
+#: ../behaviors/configure.zcml:32
+msgid "Advertisement external link"
+msgstr ""
+
+#: ../behaviors/configure.zcml:25
+msgid "Advertisement price"
+msgstr ""
 
 #: ../profiles/default/types/AdsCategory.xml
 msgid "Advertisements Category"
 msgstr "Categoria dell'annuncio"
 
-#: ../events/advertisement.py:69
+#: ../events/advertisement.py:76
 msgid "Best regards"
 msgstr "Saluti"
 
@@ -42,7 +82,7 @@ msgstr "Saluti"
 msgid "Bulletin board"
 msgstr "Bacheca degli annunci"
 
-#: ../events/advertisement.py:56
+#: ../events/advertisement.py:61
 msgid "Dear ${fullname}"
 msgstr "Caro ${fullname}"
 
@@ -52,13 +92,25 @@ msgstr "Caro ${fullname}"
 msgid "Edit"
 msgstr "Modifica"
 
-#: ../events/advertisement.py:110
+#: ../events/advertisement.py:124
 msgid "Has submitted a new advertisement. Please evaluate his content and eventually publish it."
 msgstr "ha aggiunto un nuovo annuncio. Devi valutarne il contenuti ed eventualmente pubblicarlo."
 
-#: ../events/advertisement.py:107
+#: ../configure.zcml:23
+msgid "Installs the redturtle.ads add-on."
+msgstr ""
+
+#: ../configure.zcml:23
+msgid "Redturtle Ads"
+msgstr ""
+
+#: ../events/advertisement.py:115
 msgid "The user ${fullname}"
 msgstr "L'utente ${fullname}"
+
+#: ../configure.zcml:32
+msgid "Uninstalls the redturtle.ads add-on."
+msgstr ""
 
 #: ../profiles/default/types/AdsCategory.xml
 #: ../profiles/default/types/Advertisement.xml
@@ -66,21 +118,21 @@ msgstr "L'utente ${fullname}"
 msgid "View"
 msgstr "Visualizza"
 
-#: ../events/advertisement.py:59
+#: ../events/advertisement.py:64
 msgid "We send this mail to inform you an advertisement submitted from you has been approved and published."
 msgstr "Abbiamo mandato questa mail per informarti che un tuo annuncio è stato approvato e pubblicato."
 
-#: ../events/advertisement.py:63
+#: ../events/advertisement.py:68
 msgid "You can see it here:"
 msgstr "Puoi vederlo qui:"
 
 #. Default: "Create a new Adv"
-#: ../browser/create_adv.py:25
+#: ../browser/create_adv.py:26
 msgid "add_adv_label"
 msgstr "Crea un nuovo annuncio"
 
 #. Default: "Category"
-#: ../browser/create_adv.py:67
+#: ../browser/create_adv.py:69
 msgid "ads_category_title"
 msgstr "Categoria"
 
@@ -115,22 +167,22 @@ msgid "creator_label"
 msgstr "da"
 
 #. Default: "Set how many days the ads should be visible before expire. Set 0 to keep them always visible."
-#: ../behaviors/expiration.py:17
+#: ../behaviors/expiration.py:18
 msgid "expiration_days_help"
 msgstr "Imposta quanti giorno l'annuncio deve essere visibile prima di scadere. Impostare a 0 per mantenere sempre visibile."
 
 #. Default: "Advertisements expiration days"
-#: ../behaviors/expiration.py:14
+#: ../behaviors/expiration.py:15
 msgid "expiration_days_label"
 msgstr "Scadenza degli annunci"
 
 #. Default: "If this advertisement is already published on another site, insert the link here."
-#: ../behaviors/external_link.py:20
+#: ../behaviors/external_link.py:21
 msgid "external_link_help"
 msgstr "Se l'annuncio è pubblicato anche su un altro sito, inserisci il link qui."
 
 #. Default: "External link"
-#: ../behaviors/external_link.py:17
+#: ../behaviors/external_link.py:18
 #: ../browser/templates/advertisement_view.pt:59
 msgid "external_link_label"
 msgstr "Link esterno"
@@ -140,12 +192,17 @@ msgstr "Link esterno"
 msgid "infos_label"
 msgstr "Informazioni"
 
-#: ../browser/searches.py:130
+#. Default: "Additional image"
+#: ../behaviors/additionalimage.py:16
+msgid "label_additionalimage"
+msgstr "Altre immagini"
+
+#: ../browser/searches.py:133
 msgid "next"
 msgstr "prossimi"
 
 #. Default: "No mail sender found; the mail will not be sent."
-#: ../events/advertisement.py:27
+#: ../events/advertisement.py:30
 msgid "no_sender_mail"
 msgstr "Non è stata trovata l'indirizzo a cui inviare la mail. Nessuna mail verrà spedita"
 
@@ -159,17 +216,17 @@ msgstr "-- seleziona un valore --"
 msgid "presentation_text_label"
 msgstr "Testo di presentazione"
 
-#: ../browser/searches.py:131
+#: ../browser/searches.py:134
 msgid "previous"
 msgstr "precedenti"
 
 #. Default: "Insert the wanted price. Leave blank if the price is already described above."
-#: ../behaviors/price.py:20
+#: ../behaviors/price.py:21
 msgid "price_help"
 msgstr "Inserire il prezzo cercato. Lasciare vuoto se il prezzo è già stato indicato sopra."
 
 #. Default: "Price"
-#: ../behaviors/price.py:17
+#: ../behaviors/price.py:18
 #: ../browser/templates/advertisement_view.pt:47
 msgid "price_label"
 msgstr "Prezzo"
@@ -199,22 +256,25 @@ msgstr "Inserisci un indirizzo email che riceverà una notifica per ogni nuovo a
 msgid "recipient_email_label"
 msgstr "Mail del ricevente"
 
-#: ../browser/searches.py:129
+#: ../configure.zcml:32
+msgid "redturtle.ads (uninstall)"
+msgstr ""
+
+#: ../browser/searches.py:132
 msgid "search"
 msgstr "cerca"
 
 #. Default: "-- select category --"
-#: ../browser/searches.py:29
+#: ../browser/searches.py:32
 msgid "select_category_label"
 msgstr "-- seleziona una categoria --"
 
 #. Default: "Advertisement created"
-#: ../events/advertisement.py:123
+#: ../events/advertisement.py:137
 msgid "subj_mail_created"
 msgstr "Annuncio creato"
 
 #. Default: "Advertisement published"
-#: ../events/advertisement.py:78
+#: ../events/advertisement.py:85
 msgid "subj_mail_published"
 msgstr "Annuncio pubblicato"
-

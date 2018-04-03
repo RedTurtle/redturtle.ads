@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from plone.app.contenttypes import _
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.interfaces import IDexterityContent
 from plone.namedfile import field as namedfile
 from plone.supermodel import model
+from redturtle.ads import _
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import provider
