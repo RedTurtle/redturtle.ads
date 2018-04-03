@@ -4,7 +4,9 @@ Changelog
 
 0.2.4 (unreleased)
 ------------------
-
+- Fix query that retrieve category from catalog
+- Fix translations for additionalImage behavior
+  [eikichi18]
 - Allow create_adv to be more flexible
   [lucabel]
 

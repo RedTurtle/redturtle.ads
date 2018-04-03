@@ -27,7 +27,7 @@ export default class CategoriesList extends Component {
     let resRender = theData.map((category) => {
         return <Category key={category.id} data={category} />
     });
-    
+
     if (theData){
         return (
         <div className="categories-list">

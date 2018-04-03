@@ -50,7 +50,10 @@ class AdvertisementView(HelpersView):
 
     def getAuthorInfos(self):
         creator_id = self.context.Creator()
+
         creator = api.user.get(username=creator_id)
+        fullname = creator.getProperty('fullname') if creator else ''
+
         pm = self.context.portal_membership
         other_advertisements = api.content.find(
             portal_type="Advertisement",
@@ -59,7 +62,7 @@ class AdvertisementView(HelpersView):
         return {
             "creator": {
                 'id': creator_id,
-                'fullname': creator.getProperty('fullname') or creator_id,
+                'fullname': fullname or creator_id,
                 'portrait':  pm.getPersonalPortrait(creator_id).absolute_url()
             },
             "advertisements": other_advertisements.actual_result_count,

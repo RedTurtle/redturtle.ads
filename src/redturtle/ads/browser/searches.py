@@ -18,7 +18,9 @@ class SearchCategories(HelpersView):
         '''
         return the categories list
         '''
+
         query = {
+            'path': '/'.join(self.context.getPhysicalPath()),
             'portal_type': 'AdsCategory',
             'sort_on': 'sortable_title',
         }

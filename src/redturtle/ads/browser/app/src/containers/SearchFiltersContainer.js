@@ -17,7 +17,7 @@ export class SearchFiltersContainer extends Component {
     }
 
     componentDidMount() {
-      const apiUrl = document.body.getAttribute('data-portal-url');
+      const apiUrl = document.body.getAttribute('data-base-url');
       axios.get(apiUrl + '/search_categories',
       {
         responseType: 'json',
