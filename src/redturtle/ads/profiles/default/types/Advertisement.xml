@@ -40,7 +40,6 @@
     <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage"/>
     <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
     <element value="redturtle.ads.behaviors.price.IPriceBehavior"/>
-    <element value="redturtle.ads.behaviors.additionalimage.IAdditionalImage"/>
     <element value="redturtle.ads.behaviors.external_link.IExternalLinkBehavior"/>
   </property>
 

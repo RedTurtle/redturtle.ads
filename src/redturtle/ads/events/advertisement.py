@@ -140,8 +140,8 @@ def send_email_on_creation(advertisement, recipient):
 
 
 def initialize_advertisement(advertisement, event):
-    portal_workflow = api.portal.get_tool('portal_workflow')
-    portal_workflow.doActionFor(advertisement, 'submit')
+    # portal_workflow = api.portal.get_tool('portal_workflow')
+    # portal_workflow.doActionFor(advertisement, 'submit')
 
     bullettin_board = advertisement.get_bullettin_board()
 
