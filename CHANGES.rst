@@ -6,6 +6,8 @@ Changelog
 ------------------
 - Fix query that retrieve category from catalog
 - Fix translations for additionalImage behavior
+- Disabled additionalImage beahavior
+- Commented switch of state for new advertisement
   [eikichi18]
 - Allow create_adv to be more flexible
   [lucabel]
