@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.4 (unreleased)
+0.2.4 (2018-04-26)
 ------------------
 - Fix query that retrieve category from catalog
 - Fix translations for additionalImage behavior
