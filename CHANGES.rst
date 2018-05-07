@@ -14,6 +14,7 @@ Changelog
 - Fix translations for additionalImage behavior
 - Disabled additionalImage beahavior
 - Commented switch of state for new advertisement
+- Get only not expired advertisement
   [eikichi18]
 - Allow create_adv to be more flexible
   [lucabel]
