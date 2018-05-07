@@ -6,7 +6,6 @@ from redturtle.ads import _
 from redturtle.ads.browser.helpers_view import HelpersView
 from zope.i18n import translate
 
-import datetime
 import json
 
 
@@ -62,10 +61,10 @@ class View(HelpersView):
             'portal_type': 'Advertisement',
             'sort_on': self.request.form.get('sort_on', 'effective'),
             'sort_order': self.request.form.get('sort_order', 'reverse'),
-            'expires': {
-                'query': datetime.datetime.now(),
-                'range': 'min'
-            }
+            # 'expires': {
+            #     'query': datetime.datetime.now(),
+            #     'range': 'min'
+            # }
         }
 
         searchableText = self.request.form.get('q')
