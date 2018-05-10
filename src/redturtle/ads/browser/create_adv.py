@@ -27,8 +27,7 @@ class CreateAdv(form.AddForm):
     portal_type = 'Advertisement'
     iface = IAdvertisement
 
-    @property
-    def fields(self):
+    def getFields(self):
         """
         Advertisement schema is based on IAdvertisement
         and different plone behavior.
@@ -111,16 +110,33 @@ class CreateAdv(form.AddForm):
             fields_list.append(fieldobj)
 
         fields_list.append(ads_privacy_text)
+
+        fields_list = filter(lambda x: self.filter_fields(x), fields_list)
+        return fields_list
+
+    @property
+    def fields(self):
+        fields_list = self.getFields()
         return Fields(*fields_list)
 
-        # fields['ads_category'].widgetFactory = SelectFieldWidget  # noqa
+    def filter_fields(self, field):
+        if field.__doc__ == u'label_leadimage_caption':
+            return False
+        return True
+
+    def update(self):
+        super(CreateAdv, self).update()
 
     def updateWidgets(self):
         super(CreateAdv, self).updateWidgets()
+        self.fields['image'].field.title = u'Foto'
+        self.fields['image'].field.description = u'Foto/immagine dell\'annuncio. I formati accettati sono jpeg, gif e png.'  # noqa
+
         self.widgets['helptext'].template = Z3VPTF('templates/customtext.pt')  # noqa
-        self.widgets['privacytext'].template = Z3VPTF('templates/customtext.pt')  # noqa
+        self.widgets['privacytext'].template = Z3VPTF('templates/customtext_informativa.pt')  # noqa
 
-
+    def updateActions(self):
+        super(CreateAdv, self).updateActions()
 
     @button.buttonAndHandler(_('Add'), name='add')
     def handleAdd(self, action):
@@ -132,6 +148,11 @@ class CreateAdv(form.AddForm):
         if obj is not None:
             # mark only as finished if we get the new object
             self._finishedAdd = True
+
+    @button.buttonAndHandler(_('Cancel', default='Annulla'), name='cancel')
+    def handleCancel(self, action):
+        self._finishedAdd = True
+        return
 
     def createAndAdd(self, data):
         obj = self.create(data)
@@ -171,16 +192,16 @@ class CreateAdv(form.AddForm):
         new_object = addContentToContainer(container, object)
 
         if fti.immediate_view:
-            self.immediate_view = "/".join(
+            self.immediate_view = u'/'.join(
                 [container.absolute_url(), new_object.id, fti.immediate_view]
             )
         else:
-            self.immediate_view = "/".join(
+            self.immediate_view = u'/'.join(
                 [container.absolute_url(), new_object.id]
             )
 
     def nextURL(self):
-        if self.immediate_view is not None:
+        if getattr(self, 'immediate_view', None):
             return self.immediate_view
         else:
             return self.context.absolute_url()

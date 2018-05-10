@@ -31,7 +31,10 @@ export class SearchResultsContainer extends Component {
 
     const { getSearchResults } = this.props;
 
-    const handlePageChange = (e) => getSearchResults(e.selected);
+    const handlePageChange = (e) => {
+      window.scrollTo(0, 0);
+      getSearchResults(e.selected);
+    }
 
     const results = this.props.data.data; /* XXX ?? */
     const pagination = this.props.pagination;

@@ -64,7 +64,7 @@
       </div>
       <div class="additional-images" tal:condition="additional_images">
         <tal:image repeat="image additional_images">
-          <figure class="newsImageContainer" 
+          <figure class="newsImageContainer"
               tal:define="scale_func image/@@images;
                           scaled_image python: getattr(image.aq_explicit, 'image', False) and scale_func.scale('image', scale='thumb')"
               tal:condition="scaled_image">
@@ -75,6 +75,10 @@
             </a>
           </figure>
         </tal:image>
+      </div>
+      <div class="adv-board">
+        <a href="${bulletin_url}/@@search?portal_type=Advertisement&Creator=${author_infos/creator/fullname}"
+           tal:define="bulletin_url python: context.get_bullettin_board().absolute_url()">Scopri tutti gli annunci inseriti da ${author_infos/creator/fullname}</a>
       </div>
       <div class="back-adv-board">
           <a tal:attributes="href python: context.get_bullettin_board().absolute_url()">Torna alla bacheca degli annunci</a>

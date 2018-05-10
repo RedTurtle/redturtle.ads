@@ -223,7 +223,7 @@ msgstr "precedenti"
 #. Default: "Insert the wanted price. Leave blank if the price is already described above."
 #: ../behaviors/price.py:21
 msgid "price_help"
-msgstr "Inserire il prezzo cercato. Lasciare vuoto se il prezzo è già stato indicato sopra."
+msgstr "Prezzo richiesto."
 
 #. Default: "Price"
 #: ../behaviors/price.py:18
