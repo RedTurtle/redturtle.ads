@@ -47,7 +47,7 @@ def send_email(emails, message_text, subject, sender=None):
 
 def send_email_on_publish(advertisement):
     creator = api.user.get(username=advertisement.Creator())
-    creator_email = creator.getProperty('email')
+    creator_email = getattr(creator, 'email', None)
     if not creator_email:
         logger.warning(
             'Publish mail not send to {0}. The user has no email set.'.format(
@@ -83,7 +83,7 @@ def send_email_on_publish(advertisement):
     send_email(emails,
                message_text(view, **options),
                translate(_('subj_mail_published',
-                         default=u'Advertisement published'),
+                           default=u'Advertisement published'),
                          context=advertisement.REQUEST))
 
 
@@ -135,7 +135,7 @@ def send_email_on_creation(advertisement, recipient):
     send_email(emails,
                message_text(view, **options),
                translate(_('subj_mail_created',
-                         default=u'Advertisement created'),
+                           default=u'Advertisement created'),
                          context=advertisement.REQUEST))
 
 
