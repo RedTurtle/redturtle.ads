@@ -77,7 +77,7 @@
         </tal:image>
       </div>
       <div class="adv-board">
-        <a href="${bulletin_url}/@@search?portal_type=Advertisement&Creator=${author_infos/creator/fullname}"
+        <a href="${bulletin_url}/@@search?portal_type=Advertisement&Creator=${author_infos/creator/id}"
            tal:define="bulletin_url python: context.get_bullettin_board().absolute_url()">Scopri tutti gli annunci inseriti da ${author_infos/creator/fullname}</a>
       </div>
       <div class="back-adv-board">
