@@ -13,6 +13,12 @@ class CategoriesVocabulary(object):
     # so categories should be directly his children
 
     def __call__(self, context):
+
+        for el in context.aq_chain:
+            if el.portal_type == 'BulletinBoard':
+                context = el
+                break
+
         categories = context.values()
         sorted(categories, key=lambda x: x.title)
         if not categories:

@@ -5,7 +5,9 @@ Changelog
 0.2.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed advertisement wf
+- Fixed edit form for advertisement
+  [eikichi18]
 
 
 0.2.4 (2018-04-26)

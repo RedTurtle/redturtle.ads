@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="redturtle.ads: Add Advertisement" acquire="True">
+      <role name="Authenticated" />
+    </permission>
+  </permissions>
+</rolemap>

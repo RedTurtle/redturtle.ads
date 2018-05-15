@@ -100,7 +100,7 @@
   <browser:page
     for="redturtle.ads.interfaces.IAdvertisement"
     name="edit"
-    class=".edit_adv.EditView"
+    class=".edit_adv.EditAdv"
     permission="zope2.View"
     layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
     />
