@@ -16,3 +16,10 @@ def migrate_to_1002(context):
     setup_tool = api.portal.get_tool('portal_setup')
     setup_tool.runImportStepFromProfile(default_profile, 'workflow')
     logger.info(u'Updated to 1002')
+
+
+def migrate_to_1003(context):
+    setup_tool = api.portal.get_tool('portal_setup')
+    setup_tool.runImportStepFromProfile(default_profile, 'plone.app.registry')
+    setup_tool.runImportStepFromProfile(default_profile, 'controlpanel')
+    logger.info(u'Updated to 1003')

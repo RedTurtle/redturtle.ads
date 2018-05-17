@@ -4,12 +4,23 @@
 from plone.app.textfield import RichText
 from plone.supermodel import model
 from redturtle.ads import _
+from zope import schema
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
 class IRedturtleAdsLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
+
+
+class IRedturtleAdsAdvertisementSettings(model.Schema):
+
+    page_element = schema.Int(
+        title=_(u'page_element_title',
+                default=u'Numero di elementi per pagina'),
+        description=_(u'page_element_description', default=u''),
+        default=10
+    )
 
 
 class IBulletinBoard(model.Schema):

@@ -27,14 +27,14 @@ class AdvertisementView(HelpersView):
     def getPrincipalImage(self):
         image = self.context.image
         if not image:
-            return ""
-        return self.getImageScale(self.context, miniature="mini")
+            return ''
+        return self.getImageScale(self.context, miniature='mini')
 
     def getAdditionalImages(self):
         images = self.context.listFolderContents(
-            contentFilter={"portal_type": "Image"})
-        # return map(self.getImageScale, images)
+            contentFilter={'portal_type': 'Image'})
         return images
+        # return map(lambda x: self.getImageScale(x, miniature='mini'), images)
 
     def extractAdsCategories(self, ads):
         results = []
@@ -100,6 +100,7 @@ class BaseAdvertisementForm(object):
 class DefaultEditForm(BaseEdit, BaseAdvertisementForm):
     """
     """
+
     def updateWidgets(self):
         self.add_fields()
         super(DefaultEditForm, self).updateWidgets()
@@ -113,6 +114,7 @@ classImplements(DefaultEditView, IDexterityEditForm)
 class DefaultAddForm(BaseAddForm, BaseAdvertisementForm):
     """
     """
+
     def updateWidgets(self):
         self.add_fields()
         super(DefaultAddForm, self).updateWidgets()

@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <registry>
+  <records interface="redturtle.ads.interfaces.IRedturtleAdsAdvertisementSettings"/>
+
   <records prefix="plone.resources/ads_layout"
          interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="css">

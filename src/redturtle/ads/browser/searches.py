@@ -53,7 +53,9 @@ class View(HelpersView):
     '''
 
     def __call__(self):
-        b_size = self.request.form.get('b_size', 20)
+        page_number = api.portal.get_registry_record(
+            'redturtle.ads.interfaces.IRedturtleAdsAdvertisementSettings.page_element')  # noqa
+        b_size = self.request.form.get('b_size', page_number)
         b_start = self.request.form.get('b_start', 0)
         if not isinstance(b_start, int):
             b_start = int(b_start)

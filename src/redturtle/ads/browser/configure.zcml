@@ -104,5 +104,11 @@
     permission="zope2.View"
     layer="redturtle.ads.interfaces.IRedturtleAdsLayer"
     />
+  <browser:page
+      name="advertisement-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".settings.AdvertisementSettingsView"
+      permission="cmf.ManagePortal"
+      />
 
 </configure>
