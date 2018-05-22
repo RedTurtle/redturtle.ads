@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.5 (unreleased)
+0.2.5 (2018-05-22)
 ------------------
 
 - Fixed advertisement wf
