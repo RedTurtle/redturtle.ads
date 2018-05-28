@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.7 (unreleased)
+0.2.7 (2018-05-28)
 ------------------
 
 - Added upgrade step for css removed resource [nzambello]
