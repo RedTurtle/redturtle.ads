@@ -5,7 +5,7 @@ Changelog
 0.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Removed static css sources
 
 
 0.2.5 (2018-05-22)
