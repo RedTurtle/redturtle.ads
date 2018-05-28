@@ -5,13 +5,13 @@ Changelog
 0.2.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added upgrade step for css removed resource [nzambello]
 
 
 0.2.6 (2018-05-28)
 ------------------
 
-- Removed static css sources
+- Removed static css sources [nzambello]
 
 
 0.2.5 (2018-05-22)

@@ -2,12 +2,12 @@
 <registry>
   <records interface="redturtle.ads.interfaces.IRedturtleAdsAdvertisementSettings"/>
 
-  <records prefix="plone.resources/ads_layout"
-         interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-    <value key="css">
-      <element>++plone++redturtle.ads/css/advertisement.min.css</element>
-    </value>
-  </records>
+  <!-- <records prefix="plone.resources/ads_layout"
+     -        interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+     -   <value key="css">
+     -     <element>++plone++redturtle.ads/css/advertisement.min.css</element>
+     -   </value>
+     - </records> -->
 
   <records prefix="plone.resources/bulletin_board_modal"
          interface='Products.CMFPlone.interfaces.IResourceRegistry'>

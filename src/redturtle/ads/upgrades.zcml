@@ -30,5 +30,14 @@
     handler=".upgrades.migrate_to_1003"
     />
 
+  <genericsetup:upgradeStep
+    source="1003"
+    destination="1004"
+    title="Upgrade redturtle.ads to 1004"
+    description=""
+    profile="redturtle.ads:default"
+    handler=".upgrades.migrate_to_1004"
+    />
+
 
 </configure>
