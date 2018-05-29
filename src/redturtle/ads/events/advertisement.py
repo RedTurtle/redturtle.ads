@@ -47,7 +47,8 @@ def send_email(emails, message_text, subject, sender=None):
 
 def send_email_on_publish(advertisement):
     creator = api.user.get(username=advertisement.Creator())
-    creator_email = getattr(creator, 'email', None)
+    creator_email = api.user.get(
+        username=advertisement.Creator()).getProperty('email', None)
     if not creator_email:
         logger.warning(
             'Publish mail not send to {0}. The user has no email set.'.format(
@@ -142,7 +143,6 @@ def send_email_on_creation(advertisement, recipient):
 def initialize_advertisement(advertisement, event):
     # portal_workflow = api.portal.get_tool('portal_workflow')
     # portal_workflow.doActionFor(advertisement, 'submit')
-
     bullettin_board = advertisement.get_bullettin_board()
 
     recipient = bullettin_board.recipient_email

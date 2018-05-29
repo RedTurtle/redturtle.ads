@@ -4,7 +4,7 @@ requirejs(["jquery", "mockup-patterns-modal"], function($, Modal){
     modal = new Modal($(el), {
       content: '#content',
       actionOptions:{
-        timeout: 10000,
+        timeout: 20000,
         redirectOnResponse: true,
       }
     });
