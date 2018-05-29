@@ -28,3 +28,9 @@ def migrate_to_1003(context):
 def migrate_to_1004(context):
     setup_tool = api.portal.get_tool('portal_setup')
     setup_tool.runImportStepFromProfile(default_profile, 'plone.app.registry')
+
+
+def migrate_to_1005(context):
+    setup_tool = api.portal.get_tool('portal_setup')
+    setup_tool.runImportStepFromProfile(default_profile, 'rolemap')
+    logger.info(u'Updated to 1005')

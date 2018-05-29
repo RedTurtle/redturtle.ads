@@ -5,7 +5,9 @@ Changelog
 0.2.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- added upgrade step for rolemap
+- fixed get user email when advertisement was publish
+  [eikcihi18]
 
 
 0.2.7 (2018-05-28)
