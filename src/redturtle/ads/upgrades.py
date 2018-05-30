@@ -34,3 +34,12 @@ def migrate_to_1005(context):
     setup_tool = api.portal.get_tool('portal_setup')
     setup_tool.runImportStepFromProfile(default_profile, 'rolemap')
     logger.info(u'Updated to 1005')
+
+def remove_css(context):
+    'Import the removecss profile'
+    setup_tool = api.portal.get_tool('portal_setup')
+    setup_tool.runImportStepFromProfile(
+        'profile-redturtle.ads:removecss',
+        'plone.app.registry',
+        run_dependencies=False
+    )

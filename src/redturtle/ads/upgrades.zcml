@@ -48,5 +48,14 @@
     handler=".upgrades.migrate_to_1005"
     />
 
+  <genericsetup:upgradeStep
+    source="1005"
+    destination="1006"
+    title="Remove css resource"
+    description="Remove unused css resource"
+    profile="redturtle.ads:removecss"
+    handler=".upgrades.remove_css"
+  />
+
 
 </configure>

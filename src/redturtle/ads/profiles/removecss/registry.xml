@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+
+  <records prefix="plone.resources/ads_layout"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'
+           remove="True"
+           />
+
+</registry>
+

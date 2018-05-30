@@ -32,6 +32,13 @@
       post_handler=".setuphandlers.uninstall"
       />
 
+  <genericsetup:registerProfile
+      name="removecss"
+      title="Redturtle Ads: remove css resource"
+      directory="profiles/removecss"
+      description="Removes a dangerous and useless css resource."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
   <utility
       factory=".setuphandlers.HiddenProfiles"
