@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-03 14:14+0000\n"
+"POT-Creation-Date: 2018-06-04 08:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,267 +17,304 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: redturtle.ads\n"
 
-#: ../events/advertisement.py:71
+#: ./events/advertisement.py:72
 msgid "According to actual site policy, the advertisement will be visible since ${expiration_date}"
 msgstr ""
 
-#: ../browser/create_adv.py:125
+#: ./browser/create_adv.py:141
 msgid "Add"
 msgstr ""
 
-#: ../browser/templates/bulletin_board.pt:13
+#: ./browser/templates/bulletin_board.pt:13
 msgid "Add Advertisement"
 msgstr ""
 
-#: ../behaviors/configure.zcml:42
+#: ./behaviors/configure.zcml:42
 msgid "Additional image"
 msgstr ""
 
-#: ../behaviors/configure.zcml:25
+#: ./behaviors/configure.zcml:25
 msgid "Adds a price field"
 msgstr ""
 
-#: ../behaviors/configure.zcml:32
+#: ./behaviors/configure.zcml:32
 msgid "Adds an external link field"
 msgstr ""
 
-#: ../behaviors/configure.zcml:42
+#: ./behaviors/configure.zcml:42
 msgid "Adds image and image caption fields"
 msgstr ""
 
-#: ../behaviors/configure.zcml:11
+#: ./behaviors/configure.zcml:11
 msgid "Adds the ability to force exipiration days of an advertisement"
 msgstr ""
 
-#: ../behaviors/configure.zcml:18
+#: ./behaviors/configure.zcml:18
 msgid "Adds the ability to set an email address that will be notified for every new advertisement"
 msgstr ""
 
-#: ../profiles/default/types/Advertisement.xml
+#: ./profiles/default/types/Advertisement.xml
 msgid "Advertisement"
 msgstr ""
 
-#: ../behaviors/configure.zcml:18
+#: ./behaviors/configure.zcml:18
 msgid "Advertisement email notifications"
 msgstr ""
 
-#: ../behaviors/configure.zcml:11
+#: ./behaviors/configure.zcml:11
 msgid "Advertisement expiration days"
 msgstr ""
 
-#: ../behaviors/configure.zcml:32
+#: ./behaviors/configure.zcml:32
 msgid "Advertisement external link"
 msgstr ""
 
-#: ../behaviors/configure.zcml:25
+#: ./behaviors/configure.zcml:25
 msgid "Advertisement price"
 msgstr ""
 
-#: ../profiles/default/types/AdsCategory.xml
+#: ./profiles/default/types/AdsCategory.xml
 msgid "Advertisements Category"
 msgstr ""
 
-#: ../events/advertisement.py:76
+#: ./events/advertisement.py:77
 msgid "Best regards"
 msgstr ""
 
-#: ../profiles/default/types/BulletinBoard.xml
+#: ./profiles/default/types/BulletinBoard.xml
 msgid "Bulletin board"
 msgstr ""
 
-#: ../events/advertisement.py:61
+#. Default: "Annulla"
+#: ./browser/create_adv.py:152
+msgid "Cancel"
+msgstr ""
+
+#: ./events/advertisement.py:62
 msgid "Dear ${fullname}"
 msgstr ""
 
-#: ../profiles/default/types/AdsCategory.xml
-#: ../profiles/default/types/Advertisement.xml
-#: ../profiles/default/types/BulletinBoard.xml
+#: ./profiles/default/types/AdsCategory.xml
+#: ./profiles/default/types/Advertisement.xml
+#: ./profiles/default/types/BulletinBoard.xml
 msgid "Edit"
 msgstr ""
 
-#: ../events/advertisement.py:124
+#: ./events/advertisement.py:125
 msgid "Has submitted a new advertisement. Please evaluate his content and eventually publish it."
 msgstr ""
 
-#: ../configure.zcml:23
+#: ./profiles/default/controlpanel.xml
+msgid "Impostazioni Mercatino"
+msgstr ""
+
+#: ./configure.zcml:24
 msgid "Installs the redturtle.ads add-on."
 msgstr ""
 
-#: ../configure.zcml:23
+#: ./configure.zcml:24
 msgid "Redturtle Ads"
 msgstr ""
 
-#: ../events/advertisement.py:115
+#: ./configure.zcml:41
+msgid "Redturtle Ads: remove css resource"
+msgstr ""
+
+#: ./configure.zcml:41
+msgid "Removes a dangerous and useless css resource."
+msgstr ""
+
+#. Default: "Applica"
+#: ./browser/edit_adv.py:132
+msgid "Save"
+msgstr ""
+
+#: ./events/advertisement.py:116
 msgid "The user ${fullname}"
 msgstr ""
 
-#: ../configure.zcml:32
+#: ./configure.zcml:33
 msgid "Uninstalls the redturtle.ads add-on."
 msgstr ""
 
-#: ../profiles/default/types/AdsCategory.xml
-#: ../profiles/default/types/Advertisement.xml
-#: ../profiles/default/types/BulletinBoard.xml
+#: ./profiles/default/types/AdsCategory.xml
+#: ./profiles/default/types/Advertisement.xml
+#: ./profiles/default/types/BulletinBoard.xml
 msgid "View"
 msgstr ""
 
-#: ../events/advertisement.py:64
-msgid "We send this mail to inform you an advertisement submitted from you has been approved and published."
-msgstr ""
-
-#: ../events/advertisement.py:68
+#: ./events/advertisement.py:69
 msgid "You can see it here:"
 msgstr ""
 
+#: ./events/advertisement.py:65
+msgid "Your advertisement ${adv_title} has beenpublished."
+msgstr ""
+
 #. Default: "Create a new Adv"
-#: ../browser/create_adv.py:26
+#: ./browser/create_adv.py:26
 msgid "add_adv_label"
 msgstr ""
 
 #. Default: "Category"
-#: ../browser/create_adv.py:69
+#: ./browser/create_adv.py:68
+#: ./browser/edit_adv.py:60
 msgid "ads_category_title"
 msgstr ""
 
 #. Default: "Insert some help text that will be rendered when an user creates a new advertisement."
-#: ../interfaces.py:31
+#: ./interfaces.py:42
 msgid "ads_help_text_help"
 msgstr ""
 
 #. Default: "Advertisement help text"
-#: ../interfaces.py:28
+#: ./interfaces.py:39
 msgid "ads_help_text_label"
 msgstr ""
 
 #. Default: "advertisement created"
-#: ../browser/templates/advertisement_view.pt:32
+#: ./browser/templates/advertisement_view.pt:32
 msgid "advertisement_label"
 msgstr ""
 
 #. Default: "advertisements created"
-#: ../browser/templates/advertisement_view.pt:33
+#: ./browser/templates/advertisement_view.pt:33
 msgid "advertisements_label"
 msgstr ""
 
 #. Default: "Category"
-#: ../browser/templates/advertisement_view.pt:51
+#: ./browser/templates/advertisement_view.pt:64
 msgid "category_label"
 msgstr ""
 
 #. Default: "by"
-#: ../browser/templates/advertisement_view.pt:23
+#: ./browser/templates/advertisement_view.pt:23
 msgid "creator_label"
 msgstr ""
 
+#. Default: "Modifica un Adv"
+#: ./browser/edit_adv.py:19
+msgid "edit_adv_label"
+msgstr ""
+
 #. Default: "Set how many days the ads should be visible before expire. Set 0 to keep them always visible."
-#: ../behaviors/expiration.py:18
+#: ./behaviors/expiration.py:18
 msgid "expiration_days_help"
 msgstr ""
 
 #. Default: "Advertisements expiration days"
-#: ../behaviors/expiration.py:15
+#: ./behaviors/expiration.py:15
 msgid "expiration_days_label"
 msgstr ""
 
 #. Default: "If this advertisement is already published on another site, insert the link here."
-#: ../behaviors/external_link.py:21
+#: ./behaviors/external_link.py:21
 msgid "external_link_help"
 msgstr ""
 
 #. Default: "External link"
-#: ../behaviors/external_link.py:18
-#: ../browser/templates/advertisement_view.pt:59
+#: ./behaviors/external_link.py:18
+#: ./browser/templates/advertisement_view.pt:72
 msgid "external_link_label"
 msgstr ""
 
 #. Default: "Infos"
-#: ../browser/templates/advertisement_view.pt:44
+#: ./browser/templates/advertisement_view.pt:57
 msgid "infos_label"
 msgstr ""
 
 #. Default: "Additional image"
-#: ../behaviors/additionalimage.py:16
+#: ./behaviors/additionalimage.py:16
 msgid "label_additionalimage"
 msgstr ""
 
-#: ../browser/searches.py:133
+#: ./browser/searches.py:139
 msgid "next"
 msgstr ""
 
 #. Default: "No mail sender found; the mail will not be sent."
-#: ../events/advertisement.py:30
+#: ./events/advertisement.py:30
 msgid "no_sender_mail"
 msgstr ""
 
 #. Default: "-- no value --"
-#: ../vocabularies.py:24
+#: ./vocabularies.py:30
 msgid "no_value_label"
 msgstr ""
 
+#: ./interfaces.py:21
+msgid "page_element_description"
+msgstr ""
+
+#. Default: "Numero di elementi per pagina"
+#: ./interfaces.py:19
+msgid "page_element_title"
+msgstr ""
+
 #. Default: "Presentation text"
-#: ../interfaces.py:18
+#: ./interfaces.py:29
 msgid "presentation_text_label"
 msgstr ""
 
-#: ../browser/searches.py:134
+#: ./browser/searches.py:140
 msgid "previous"
 msgstr ""
 
 #. Default: "Insert the wanted price. Leave blank if the price is already described above."
-#: ../behaviors/price.py:21
+#: ./behaviors/price.py:21
 msgid "price_help"
 msgstr ""
 
 #. Default: "Price"
-#: ../behaviors/price.py:18
-#: ../browser/templates/advertisement_view.pt:47
+#: ./behaviors/price.py:18
+#: ./browser/templates/advertisement_view.pt:60
 msgid "price_label"
 msgstr ""
 
 #. Default: "Insert a privacy policy text that will be rendered when an user creates a new advertisement."
-#: ../interfaces.py:45
+#: ./interfaces.py:56
 msgid "privacy_text_help"
 msgstr ""
 
 #. Default: "Privacy text"
-#: ../interfaces.py:42
+#: ./interfaces.py:53
 msgid "privacy_text_label"
 msgstr ""
 
 #. Default: "Published"
-#: ../browser/templates/advertisement_view.pt:55
+#: ./browser/templates/advertisement_view.pt:68
 msgid "published_label"
 msgstr ""
 
 #. Default: "Insert an email address that will be notified for every new advertisement."
-#: ../behaviors/mail_notification.py:18
+#: ./behaviors/mail_notification.py:18
 msgid "recipient_email_help"
 msgstr ""
 
 #. Default: "Recipient email"
-#: ../behaviors/mail_notification.py:15
+#: ./behaviors/mail_notification.py:15
 msgid "recipient_email_label"
 msgstr ""
 
-#: ../configure.zcml:32
+#: ./configure.zcml:33
 msgid "redturtle.ads (uninstall)"
 msgstr ""
 
-#: ../browser/searches.py:132
+#: ./browser/searches.py:138
 msgid "search"
 msgstr ""
 
 #. Default: "-- select category --"
-#: ../browser/searches.py:32
+#: ./browser/searches.py:32
 msgid "select_category_label"
 msgstr ""
 
 #. Default: "Advertisement created"
-#: ../events/advertisement.py:137
+#: ./events/advertisement.py:138
 msgid "subj_mail_created"
 msgstr ""
 
 #. Default: "Advertisement published"
-#: ../events/advertisement.py:85
+#: ./events/advertisement.py:86
 msgid "subj_mail_published"
 msgstr ""

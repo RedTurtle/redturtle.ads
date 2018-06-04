@@ -62,9 +62,9 @@ def send_email_on_publish(advertisement):
             _('Dear ${fullname}',
                 mapping={'fullname': creator.getProperty('fullname')}),
                 context=advertisement.REQUEST),
-        'msg2': translate(_('We send this mail to inform you an advertisement'
-                            ' submitted from you has been approved and'
-                            ' published.'),
+        'msg2': translate(_('Your advertisement ${adv_title} has been'
+                            'published.',
+                            mapping={'adv_title': advertisement.title}),
                           context=advertisement.REQUEST),
         'msg3': translate(_('You can see it here:'),
                           context=advertisement.REQUEST),

@@ -7,6 +7,7 @@ Changelog
 
 - added upgrade step for rolemap
 - fixed get user email when advertisement was publish
+- fixed text on published mail
   [eikcihi18]
 
 
