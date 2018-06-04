@@ -2,7 +2,13 @@ Changelog
 =========
 
 
-0.2.8 (unreleased)
+0.2.9 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
+0.2.8 (2018-05-31)
 ------------------
 
 - added upgrade step for rolemap
