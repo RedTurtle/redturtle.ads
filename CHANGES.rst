@@ -5,7 +5,8 @@ Changelog
 0.2.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed email text from published content email
+  [eikichi18]
 
 
 0.2.8 (2018-05-31)
@@ -13,7 +14,6 @@ Changelog
 
 - added upgrade step for rolemap
 - fixed get user email when advertisement was publish
-- fixed text on published mail
   [eikcihi18]
 
 
