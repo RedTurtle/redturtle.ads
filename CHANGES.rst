@@ -5,7 +5,8 @@ Changelog
 0.2.9 (unreleased)
 ------------------
 
-- Fixed email text from published content email
+- Fixed email text of published content email
+- added publication date in advertisement list
   [eikichi18]
 
 
