@@ -8,6 +8,11 @@ class Advertisement extends Component {
     let price;
     let image;
     let category;
+    let date;
+
+    if (data.date) {
+      date= <div className="adv-date">{data.date}</div>;
+    }
 
     if (data.title) {
       title = <div className="adv-title"><a href={data.url}>{data.title}</a></div>;
@@ -42,6 +47,7 @@ class Advertisement extends Component {
         <div className="col-xs-9 col-sm-9 advertisement-infos">
           {title}
           {description}
+          {date}
           <div class="adv-details">
             {price}
             {category}

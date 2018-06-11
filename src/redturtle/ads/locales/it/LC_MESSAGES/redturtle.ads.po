@@ -16,7 +16,7 @@ msgstr ""
 
 #: ./events/advertisement.py:72
 msgid "According to actual site policy, the advertisement will be visible since ${expiration_date}"
-msgstr "${expiration_date}"
+msgstr ""
 
 #: ./browser/create_adv.py:141
 msgid "Add"

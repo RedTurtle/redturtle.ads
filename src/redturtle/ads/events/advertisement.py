@@ -71,7 +71,8 @@ def send_email_on_publish(advertisement):
         'msg4': translate(
             _(
                 u'According to actual site policy, the advertisement will be visible since ${expiration_date}',  # noqa
-                mapping={'expiration_date': advertisement.expiration_date.strftime('%Y/%m/%d')}  # noqa
+                mapping={'expiration_date': advertisement.expiration_date.strftime('%Y/%m/%d')},  # noqa
+                default=u''
             ),
             context=advertisement.REQUEST),
         'msg5': translate(_('Best regards'), context=advertisement.REQUEST),
