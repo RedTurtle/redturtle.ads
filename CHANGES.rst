@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.9 (unreleased)
+0.2.9 (2018-06-13)
 ------------------
 
 - Fixed email text of published content email
