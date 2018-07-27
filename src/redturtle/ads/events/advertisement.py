@@ -59,8 +59,8 @@ def send_email_on_publish(advertisement):
     emails = [creator_email, ]
     options = {
         'msg1': translate(
-            _('Dear ${fullname}',
-                mapping={'fullname': creator.getProperty('fullname')}),
+            _(u'Dear ${fullname}',
+                mapping={'fullname': creator.getProperty('fullname').decode('utf-8')}),  # noqa
                 context=advertisement.REQUEST),
         'msg2': translate(_('Your advertisement ${adv_title} has been'
                             'published.',
@@ -115,9 +115,9 @@ def send_email_on_creation(advertisement, recipient):
     options = {
         'msg1': translate(
             _(
-                'The user ${fullname}',
+                u'The user ${fullname}',
                 mapping={'fullname': '{0} ({1})'.format(
-                    creator.getProperty('fullname'),
+                    creator.getProperty('fullname').decode('utf-8'),
                     creator.getProperty('email')
                 )
             }),  # noqa
