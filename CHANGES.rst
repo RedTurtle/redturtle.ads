@@ -5,7 +5,8 @@ Changelog
 0.2.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed string formattation for particular name
+  [eikichi18]
 
 
 0.2.9 (2018-06-13)
