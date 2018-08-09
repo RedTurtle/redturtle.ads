@@ -116,7 +116,7 @@ def send_email_on_creation(advertisement, recipient):
         'msg1': translate(
             _(
                 u'The user ${fullname}',
-                mapping={'fullname': '{0} ({1})'.format(
+                mapping={'fullname': u'{0} ({1})'.format(
                     creator.getProperty('fullname').decode('utf-8'),
                     creator.getProperty('email')
                 )
