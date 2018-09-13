@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.10 (unreleased)
+0.2.10 (2018-09-13)
 -------------------
 
 - Added presentation_text to bulletin board view
