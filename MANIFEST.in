@@ -5,3 +5,4 @@ global-exclude *.pyc
 exclude package-lock.json
 prune node_modules
 prune src/redturtle/ads/browser/app/node_modules
+include *.txt
