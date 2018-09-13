@@ -5,6 +5,7 @@ Changelog
 0.2.10 (unreleased)
 -------------------
 
+- Added presentation_text to bulletin board view
 - Fixed string formattation for particular name
   [eikichi18]
 

@@ -10,6 +10,7 @@
     <metal:content-core fill-slot="content-core">
       <metal:content-core define-macro="content-core">
       <metal:listingmacro define-macro="listing">
+        <div class="presentation-text" tal:content="structure python: view.context.presentation_text.raw" />
         <a i18n:translate="" href="${context/absolute_url}/@@create_adv" class="ads-btn-add load-modal">Add Advertisement</a>
         <div id="advertisements-wrapper">
 
