@@ -3,9 +3,10 @@ Changelog
 
 
 0.2.11 (unreleased)
+0.2.10 (2018-12-19)
 -------------------
 
-- Nothing changed yet.
+- Prepare for release.
 
 
 0.2.10 (2018-09-13)
