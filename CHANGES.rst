@@ -5,7 +5,8 @@ Changelog
 0.2.11 (2018-12-19)
 -------------------
 
-- Prepare for release.
+- Avoid setting expiration date when a BookCrossing is published
+  [daniele]
 
 
 0.2.10 (2018-09-13)

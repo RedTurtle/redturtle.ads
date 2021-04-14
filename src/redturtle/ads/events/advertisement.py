@@ -96,6 +96,10 @@ def set_expiration_date(advertisement, event):
     if adv_state != 'published':
         return
 
+    if advertisement.portal_type == 'BookCrossing':
+        send_email_on_publish(advertisement)
+        return
+
     bullettin_board = advertisement.get_bullettin_board()
 
     expiration_days = safe_hasattr(bullettin_board, 'expiration_days') and\
