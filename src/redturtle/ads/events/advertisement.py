@@ -75,7 +75,7 @@ def send_email_on_publish(advertisement):
         'expiration_date': advertisement.expiration_date
     }
 
-    if advertisement.portal_type != 'BookCrossing':
+    if getattr(advertisement, "expiration_date", None):
         options.update({
             'msg4': translate(
                     _(
@@ -87,12 +87,7 @@ def send_email_on_publish(advertisement):
         })
     else:
         options.update({
-            'msg4': translate(
-                    _(
-                        u'',
-                        default=u''
-                    ),
-                    context=advertisement.REQUEST),
+            'msg4': u''
         })
 
     message_text = ViewPageTemplateFile('adv_published.pt')
