@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.12 (unreleased)
+0.2.12 (2021-06-21)
 -------------------
 
 - Fixed email notification message when publishing advertisement.
