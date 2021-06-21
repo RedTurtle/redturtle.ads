@@ -5,7 +5,8 @@ Changelog
 0.2.12 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed email notification message when publishing advertisement.
+  [daniele]
 
 
 0.2.11 (2018-12-19)

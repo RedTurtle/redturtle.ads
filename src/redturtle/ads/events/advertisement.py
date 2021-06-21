@@ -57,6 +57,7 @@ def send_email_on_publish(advertisement):
         )
         return
     emails = [creator_email, ]
+
     options = {
         'msg1': translate(
             _(u'Dear ${fullname}',
@@ -68,18 +69,27 @@ def send_email_on_publish(advertisement):
                           context=advertisement.REQUEST),
         'msg3': translate(_('You can see it here:'),
                           context=advertisement.REQUEST),
-        'msg4': translate(
-            _(
-                u'According to actual site policy, the advertisement will be visible since ${expiration_date}',  # noqa
-                mapping={'expiration_date': advertisement.expiration_date.strftime('%Y/%m/%d')},  # noqa
-                default=u''
-            ),
-            context=advertisement.REQUEST),
         'msg5': translate(_('Best regards'), context=advertisement.REQUEST),
         'adv_url': advertisement.absolute_url(),
         'adv_title': advertisement.title,
         'expiration_date': advertisement.expiration_date
     }
+
+    if getattr(advertisement, "expiration_date", None):
+        options.update({
+            'msg4': translate(
+                    _(
+                        u'According to actual site policy, the advertisement will be visible since ${expiration_date}',  # noqa
+                        mapping={'expiration_date': advertisement.expiration_date.strftime('%Y/%m/%d')},  # noqa
+                        default=u''
+                    ),
+                    context=advertisement.REQUEST),
+        })
+    else:
+        options.update({
+            'msg4': u''
+        })
+
     message_text = ViewPageTemplateFile('adv_published.pt')
     view = advertisement.restrictedTraverse('@@view')
     send_email(emails,
