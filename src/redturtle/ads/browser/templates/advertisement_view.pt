@@ -76,8 +76,7 @@
         </div>
       </div>
       <div class="adv-board">
-        <a href="${bulletin_url}/@@search?portal_type=Advertisement&Creator=${author_infos/creator/id}"
-           tal:define="bulletin_url python: context.get_bullettin_board().absolute_url()">Scopri tutti gli annunci inseriti da ${author_infos/creator/fullname}</a>
+        <a href="${context/portal_url}/@@search?portal_type=Advertisement&Creator=${author_infos/creator/id}">Scopri tutti gli annunci inseriti da ${author_infos/creator/fullname}</a>
       </div>
       <div class="back-adv-board">
           <a tal:attributes="href python: context.get_bullettin_board().absolute_url()">Torna alla bacheca degli annunci</a>
