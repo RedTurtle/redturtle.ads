@@ -71,14 +71,14 @@ class CreateAdv(form.AddForm):
             missing_value='',
         )
 
-        help_text = self.context.get_ads_help_text().decode('utf-8')
+        help_text = self.context.get_ads_help_text()
         ads_help_text = schema.Text(
             __name__='helptext',
             title=u'',
             required=False,
             default=help_text
         )
-        privacy_text = self.context.get_privacy_text().decode('utf-8')
+        privacy_text = self.context.get_privacy_text()
         ads_privacy_text = schema.Text(
             __name__='privacytext',
             title=u'',
@@ -129,8 +129,9 @@ class CreateAdv(form.AddForm):
 
     def updateWidgets(self):
         super(CreateAdv, self).updateWidgets()
-        self.fields['image'].field.title = u'Foto'
-        self.fields['image'].field.description = u'Foto/immagine dell\'annuncio. I formati accettati sono jpeg, gif e png.'  # noqa
+        if 'image' in self.fields:
+            self.fields['image'].field.title = u'Foto'
+            self.fields['image'].field.description = u'Foto/immagine dell\'annuncio. I formati accettati sono jpeg, gif e png.'  # noqa
 
         self.widgets['helptext'].template = Z3VPTF('templates/customtext.pt')  # noqa
         self.widgets['privacytext'].template = Z3VPTF('templates/customtext_informativa.pt')  # noqa

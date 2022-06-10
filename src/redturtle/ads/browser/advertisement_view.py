@@ -25,7 +25,7 @@ class AdvertisementView(HelpersView):
         return super(AdvertisementView, self).__call__()
 
     def getPrincipalImage(self):
-        image = self.context.image
+        image = getattr(self.context, 'image', None)
         if not image:
             return ''
         return self.getImageScale(self.context, miniature='mini')
@@ -73,14 +73,14 @@ class AdvertisementView(HelpersView):
 class BaseAdvertisementForm(object):
 
     def add_fields(self):
-        help_text = self.context.get_ads_help_text().decode('utf-8')
+        help_text = self.context.get_ads_help_text()
         ads_help_text = zope.schema.Text(
             __name__='helptext',
             title=u'',
             required=False,
             default=help_text
         )
-        privacy_text = self.context.get_privacy_text().decode('utf-8')
+        privacy_text = self.context.get_privacy_text()
         ads_privacy_text = zope.schema.Text(
             __name__='privacytext',
             title=u'',
