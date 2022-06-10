@@ -32,7 +32,6 @@
     />
 
   <plone:behavior
-    name="ads.additionalimage"
     title="Additional image"
     description="Adds image and image caption fields"
     provides=".additionalimage.IAdditionalImage"
