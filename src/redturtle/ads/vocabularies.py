@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from redturtle.ads import _
 from zope.i18n import translate
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
 
 
+@implementer(IVocabularyFactory)
 class CategoriesVocabulary(object):
-    implements(IVocabularyFactory)
 
     # This vocabulary should be always called in the root of a board.
     # so categories should be directly his children
@@ -23,9 +23,9 @@ class CategoriesVocabulary(object):
         sorted(categories, key=lambda x: x.title)
         if not categories:
             return SimpleVocabulary([])
-        terms = map(
+        terms = list(map(
             lambda x: SimpleVocabulary.createTerm(x.UID(), x.UID(), x.title),
-            categories)
+            categories))
         no_value_label = translate(
             _('no_value_label', default=u"-- no value --"),
             context=context.REQUEST)
