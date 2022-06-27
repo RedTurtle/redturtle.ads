@@ -25,7 +25,7 @@ class SearchCategories(HelpersView):
             'sort_on': 'sortable_title',
         }
         results = api.content.find(**query)
-        json_result = map(self.formatResponse, results)
+        json_result = list(map(self.formatResponse, results))
         self.request.response.setHeader("Content-type", "application/json")
         self.request.response.setHeader("Access-Control-Allow-Origin", "*")
         select_category_label = translate(
@@ -91,7 +91,7 @@ class View(HelpersView):
         nexturls = results.has_next and results.nexturls({})[0] or []
         prevurls = results.has_previous and results.prevurls({})[0] or []
         return {
-            'data': map(self.formatAnnouncement, results),
+            'data': list(map(self.formatAnnouncement, results)),
             'meta': {
                 'hasPrevious': results.has_previous,
                 'hasNext': results.has_next,
